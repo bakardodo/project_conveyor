@@ -32,5 +32,8 @@ class CreateConveyorBeltView(CreateView):
     form_class = CreateAskForm
     success_url = reverse_lazy('conveyor belt')
 
+    def get_queryset(self):
+        pass
+
 
 
