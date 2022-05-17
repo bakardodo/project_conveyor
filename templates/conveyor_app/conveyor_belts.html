@@ -1,0 +1,103 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_filters %}
+{% block page_content %}
+    <div style="background-color: #d5d5d5;height: 50px">
+        <div class="container mb-5 py-3">
+            <div class="row mb-5">
+                <h5 style="color: black;font-style: italic">
+                    Начало -> Конвейерни ленти
+                </h5>
+            </div>
+        </div>
+    </div>
+    <div class="container mb-5 py-3">
+        <div class="row mb-5">
+            <div class="card" style="width: 25rem;height: 14rem;background-color: #d5d5d5">
+                <p class="font-weight-bold" style="font-size: 20px">Текстилни ленти без покритие</p>
+{#                    <h5>#}
+{#                        GAH-654-H#}
+{#                    </h5>#}
+{#                    <h5>#}
+{#                        GAH-660-K#}
+{#                    </h5>#}
+{#                    <h5>#}
+{#                        GAH-665-R#}
+{#                    </h5>#}
+{#                    <h5>#}
+{#                        GAH-690-F#}
+{#                    </h5>#}
+                <p class="font-weight-bold" style="font-size: 20px">Текстилни ленти с PVC покритие</p>
+{#                    <h5>#}
+{#                        SU-65-H#}
+{#                    </h5>#}
+{#                    <h5>#}
+{#                        SU-660-K#}
+{#                    </h5>#}
+{#                    <h5>#}
+{#                        GAH-504-FF#}
+{#                    </h5>#}
+{#                    <h5>#}
+{#                        GY-350-GH#}
+{#                    </h5>#}
+                <p class="font-weight-bold" style="font-size: 20px">Текстилни ленти с PU покритие</p>
+{#                    <h5>#}
+{#                        JF-30-H#}
+{#                    </h5>#}
+{#                    <h5>#}
+{#                        KJ-66-K#}
+{#                    </h5>#}
+{#                    <h5>#}
+{#                        JF-50-F#}
+{#                    </h5>#}
+{#                    <h5>#}
+{#                        GY-350-GH#}
+{#                    </h5>#}
+                <p class="font-weight-bold" style="font-size: 20px">Текстилни ленти с TPU покритие</p>
+{#                     <h5>#}
+{#                        FF-97-H#}
+{#                    </h5>#}
+{#                    <h5>#}
+{#                        LK-45-K#}
+{#                    </h5>#}
+{#                    <h5>#}
+{#                        LK-96-F#}
+{#                    </h5>#}
+{#                    <h5>#}
+{#                        LF-35-GH#}
+{#                    </h5>#}
+                <p class="font-weight-bold" style="font-size: 20px">Текстилни ленти с гумено покритие</p>
+{#                     <h5>#}
+{#                        FGF-306-H#}
+{#                    </h5>#}
+{#                    <h5>#}
+{#                        KKJ-662-K#}
+{#                    </h5>#}
+{#                    <h5>#}
+{#                        JJF-665-F#}
+{#                    </h5>#}
+{#                    <h5>#}
+{#                        DFF-500-G#}
+{#                    </h5>#}
+            </div>
+
+            <div class="col d-flex justify-content-end">
+                <div class="card" style="width: 25rem;background-color: #d5d5d5">
+                    <div class="card-body">
+                        <h3 class="text-center">
+                            Направете запитване
+                        </h3>
+                        <form method="post">
+                            {% csrf_token %}
+                            {{ form|crispy }}
+                            <div class="text-center">
+                                <button class="btn btn-primary mt-2" type="submit">Изпрати</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+{% endblock %}

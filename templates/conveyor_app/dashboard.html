@@ -1,0 +1,102 @@
+{% extends 'base.html' %}
+{% block page_content %}
+    {% load crispy_forms_filters %}
+    {% load static %}
+    <head>
+
+        <title>Conveyor</title>
+    </head>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.css" rel="stylesheet"/>
+    {#    <div class="navbar navbar-expand-lg" style="background-color: #226d86">#}
+    {##}
+    {#    </div>#}
+
+
+    {#    <img width="100%" height="550"  src="{% static 'aaaaaaaa.jpg' %}" alt="My image">#}
+
+
+
+
+    <div class="container mb-5 py-3">
+        <div class="row mb-5">
+
+            <div style="width: 50rem; margin: 40px;height: 10rem">
+
+                <div style="height: 10px"></div>
+                <h1 style="font-style: italic;color: #480410">
+                    АВТОМАТИЗИРАНИ ТРАНСПОРТНИ КОНВЕЙЕРНИ СИСТЕМИ
+                </h1>
+                <h3 style="font-style: italic;color: #480410">
+                    &#10003 Бързина!
+                </h3>
+                <h3 style="font-style: italic;color: #480410">
+                    &#10003 Коректност!
+                </h3>
+                <h3 style="font-style: italic;color: #480410">
+                    &#10003 Гъвкавост!
+                </h3>
+                <h3 style="font-style: italic;color: #480410">
+                    &#10003 Качество!
+                </h3>
+            </div>
+        </div>
+
+
+    </div>
+
+    <div class="col d-flex justify-content-center">
+        <h1 style="color: #480410">
+            ТОП КАТЕГОРИИ
+        </h1>
+    </div>
+    <div class="container mb-5">
+        <div class="row mb-5">
+            <div class="col d-flex justify-content-center">
+                <div class="card" style="width: 18rem; margin: 10px;background-color: gray">
+                    <img src="{% static 'grey_3.jpg' %}" class="card-img-top" style="height: 10rem">
+                    <div class="text-center">
+                        <div class="card-body" style="background-color: gray;">
+                            <div class="text-center">
+                                <h4 class="card-title">
+                                </h4>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col d-flex justify-content-center">
+                    <div class="card" style="width: 18rem; margin: 10px;background-color: gray">
+                        <img src="{% static 'grey_3.jpg' %}" class="card-img-top" style="height: 10rem">
+                        <div class="text-center">
+                            <div class="card-body" style="background-color: gray;">
+                                <div class="text-center">
+                                    <h4 class="card-title">
+                                    </h4>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                <div class="col d-flex justify-content-center">
+                    <div class="card" style="width: 18rem; margin: 10px;background-color: gray">
+                        <img src="{% static 'grey_3.jpg' %}" class="card-img-top" style="height: 10rem">
+                        <div class="text-center">
+                            <div class="card-body" style="background-color: gray;">
+                                <div class="text-center">
+                                    <h4 class="card-title">
+                                    </h4>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+        </div>
+
+
+{% endblock %}
