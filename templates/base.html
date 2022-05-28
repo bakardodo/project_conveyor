@@ -8,7 +8,7 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
           integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
 
@@ -22,7 +22,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"
             integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF"
             crossorigin="anonymous"></script>
-    <title>Hello, world!</title>
+    <title>Yanev parts</title>
 
 </head>
 <style>
@@ -44,7 +44,7 @@
         <div>
             <ul class="navbar-nav">
                 <li class="nav-item nav-link px-2">
-                    <a href="#">
+                    <a href="{% url 'home' %}">
                         <img src="{% static 'yanev.png' %}" alt="png"
                              style="width:90px"></a>
                 </li>
@@ -70,10 +70,26 @@
         <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="#" style="font-size: 20px">Начало</a>
+                    <a class="nav-link" href="{% url 'home' %}" style="font-size: 20px">Начало</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#" style="font-size: 20px">Продукти</a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-size: 20px">
+                        Продукти
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        {#                        <a class="dropdown-item" href="#">Конвейерни ленти</a>#}
+                        <a class="dropdown-item" href="#">Лагерни тела</a>
+                        <a class="dropdown-item" href="#">Ремъчни шайби</a>
+                        <a class="dropdown-item" href="#">Верижни колела с главина</a>
+                        <a class="dropdown-item" href="#">Цилиндрични модулни колела</a>
+                        <a class="dropdown-item" href="#">Електродвигатели</a>
+                        <a class="dropdown-item" href="#">Модулни рейки</a>
+                        <a class="dropdown-item" href="#">Редуктори</a>
+                        <a class="dropdown-item" href="#">Ролкови вериги</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item font-weight-bold" href="{% url 'conveyor belt' %}">Конвейерни ленти</a>
+                    </div>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#" style="font-size: 20px">Блог</a>
@@ -89,6 +105,8 @@
 <div style="background-color: #dce9ef;height: 20px">
 
 </div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+</body>
 {#<nav class="navbar navbar-expand-lg" style="background-color: #226d86">#}
 {#</nav>#}
 {#<nav class="navbar navbar-expand-lg" style="background-color: #e7edf1;height: 180px">#}
@@ -96,3 +114,23 @@
 
 {% block page_content %}
 {% endblock %}
+
+<div style="background-color: #333333;height: 15rem">
+    <div class="container mb-5">
+        <div class="row mb-5 py-3" style="border-bottom: 1px solid white">
+            <div class="col d-flex justify-content-center">
+                <h4 class="fw-bold" style="color: white;">
+                    Янев ООД
+                </h4>
+                <div class="col-1">
+                    <h4 class="fw-bold" style="color: white;">
+                        Янев ООД
+                    </h4>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+</div>

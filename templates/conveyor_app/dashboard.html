@@ -3,10 +3,9 @@
     {% load crispy_forms_filters %}
     {% load static %}
     <head>
-
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.css" rel="stylesheet"/>
         <title>Conveyor</title>
     </head>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.css" rel="stylesheet"/>
     {#    <div class="navbar navbar-expand-lg" style="background-color: #226d86">#}
     {##}
     {#    </div>#}
@@ -48,11 +47,12 @@
         <h2 style="color: #480410">
             ТОП КАТЕГОРИИ
         </h2>
+
     </div>
-    <div class="container mb-5 py-3">
-        <div class="row mb-5">
+    <div class="container mb-5">
+        <div class="row mb-5 py-3" style="border-top: 2px solid darkgray">
             <div class="col d-flex justify-content-center">
-                <a href="">
+                <a href="{% url 'conveyor belt' %}">
                     <div class="card" style="width: 20rem; margin: 10px">
                         <img src="{% static 'conveyor_belt.png' %}" class="card-img-top" style="height: 15rem">
                         <div class="card-body" style="background-color: #480410;height: 80px">
@@ -97,7 +97,7 @@
                         <div class="card-body" style="background-color: #480410;height: 80px">
                             <div class="text-center">
                                 <h4 class="card-title" style="font-style: italic;color: white;">
-                                    Верижни колела с верига</h4>
+                                    Верижни колела с главина</h4>
                             </div>
                         </div>
                     </div>

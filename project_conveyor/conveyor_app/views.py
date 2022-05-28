@@ -35,5 +35,9 @@ class CreateConveyorBeltView(CreateView):
     def get_queryset(self):
         pass
 
+class CreateInsideShoppingCartView(TemplateView):
+    template_name = 'conveyor_app/shopping_cart.html'
+
+
 
 
