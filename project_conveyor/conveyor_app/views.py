@@ -39,5 +39,9 @@ class CreateInsideShoppingCartView(TemplateView):
     template_name = 'conveyor_app/shopping_cart.html'
 
 
+class CreateBearingBodies(CreateView):
+    pass
+
+
 
 
