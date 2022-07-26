@@ -1,7 +1,10 @@
+from django.contrib.auth import get_user_model
 from django.db import models
 
 # Create your models here.
 # -*- coding: utf-8 -*-
+
+UserModel = get_user_model()
 class AskModel(models.Model):
     MAX_LENGTH_NAME = 50
 
@@ -85,4 +88,25 @@ class AskModel(models.Model):
         null=True,
         blank=True,
     )
+
+    user = models.ForeignKey(
+        UserModel,
+        on_delete=models.CASCADE,
+    )
+
+class BearingBody(models.Model):
+    UCF = 'UCF'
+    UCFL = 'UCFL'
+    UCP = 'UCP'
+    UCT = 'UCT'
+
+    TYPE_BEARING_BODY = [(x, x) for x in (UCF, UCFL, UCP, UCT)]
+
+    bearing_body = models.CharField(
+        max_length=max(len(x) for (x, _) in TYPE_BEARING_BODY),
+        choices=TYPE_BEARING_BODY,
+        verbose_name='Лагерно тяло',
+
+    )
+
 

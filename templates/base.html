@@ -116,7 +116,7 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         {#                        <a class="dropdown-item" href="#">Конвейерни ленти</a>#}
-                        <a class="dropdown-item" href="#">Лагерни тела</a>
+                        <a class="dropdown-item" href="{% url 'bearing body' %}">Лагерни тела</a>
                         <a class="dropdown-item" href="#">Ремъчни шайби</a>
                         <a class="dropdown-item" href="#">Верижни колела с главина</a>
                         <a class="dropdown-item" href="#">Цилиндрични модулни колела</a>
@@ -129,17 +129,19 @@
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#" style="font-size: 20px">Блог</a>
-                </li>
-                <li class="nav-item">
                     <a class="nav-link" href="#" style="font-size: 20px">Контакти</a>
                 </li>
+                {% if user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" style="font-size: 20px">Профил</a>
+                    </li>
+                {% endif  %}
                 <li class="nav-item" style="font-size: 25px">
                     <a href="{% url 'shopping cart' %}" class="cart position-relative d-inline-flex"
                        aria-label="View your shopping cart"  style="font-size: 20px;color: #545151">
                         <i class="fas fa fa-shopping-cart fa-lg"></i>
                         <span class="cart-basket d-flex align-items-center justify-content-center">
-                            <b>8</b>
+                            <b>{{ all_items }}</b>
                         </span>
                     </a>
                 </li>

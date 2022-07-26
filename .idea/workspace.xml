@@ -2,18 +2,38 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7803d486-fada-4237-9654-9f0ef9969215" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/account_user/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/account_user/admin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/account_user/apps.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/account_user/manager.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/account_user/migrations/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/account_user/models.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/account_user/tests.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/account_user/views.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/bearing_body.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/belts_2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/best_chain.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/chain_wheels.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/engine.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/engine_2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/modul_2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/modul_wheels.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/pulleys.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/account_user/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/project_conveyor/account_user/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/account_user/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/project_conveyor/account_user/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/account_user/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/project_conveyor/account_user/apps.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/account_user/manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/project_conveyor/account_user/manager.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/account_user/migrations/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/project_conveyor/account_user/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/account_user/models.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/account_user/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/project_conveyor/account_user/tests.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/account_user/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/project_conveyor/account_user/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project_conveyor/conveyor_app/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/project_conveyor/conveyor_app/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project_conveyor/conveyor_app/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project_conveyor/conveyor_app/migrations/0002_askmodel_blade_height_askmodel_blade_length_and_more.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project_conveyor/conveyor_app/migrations/0003_alter_askmodel_blade_height_and_more.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project_conveyor/conveyor_app/migrations/0004_alter_askmodel_connection_method_and_more.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project_conveyor/conveyor_app/migrations/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/project_conveyor/account_user/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project_conveyor/conveyor_app/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/project_conveyor/conveyor_app/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project_conveyor/conveyor_app/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/project_conveyor/conveyor_app/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/project_conveyor/conveyor_app/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/project_conveyor/conveyor_app/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project_conveyor/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/project_conveyor/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project_conveyor/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/project_conveyor/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/conveyor_app/bearing_bodies.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/conveyor_app/bearing_bodies.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/conveyor_app/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/conveyor_app/dashboard.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/conveyor_app/shopping_cart.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/conveyor_app/shopping_cart.html" afterDir="false" />
     </list>
@@ -51,6 +71,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../car_cost_tracker" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
@@ -122,7 +143,8 @@
       <workItem from="1652795838028" duration="25000" />
       <workItem from="1652797645151" duration="21826000" />
       <workItem from="1653561223516" duration="11258000" />
-      <workItem from="1656331913943" duration="14110000" />
+      <workItem from="1656331913943" duration="28372000" />
+      <workItem from="1658668384203" duration="30011000" />
     </task>
     <servers />
   </component>

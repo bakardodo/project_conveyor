@@ -3,7 +3,7 @@ from django.contrib.auth.hashers import make_password
 from django.contrib.auth.models import User
 
 
-class ConveyorUserManager(BaseUserManager, User):
+class ConveyorUserManager(BaseUserManager):
     def _create_user(self, username, password, **extra_fields):
         """
         Create and save a user with the given username, email, and password.
