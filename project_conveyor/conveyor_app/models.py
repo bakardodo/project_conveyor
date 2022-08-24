@@ -1,10 +1,13 @@
 from django.contrib.auth import get_user_model
 from django.db import models
+from jsonfield import JSONField
 
 # Create your models here.
 # -*- coding: utf-8 -*-
 
 UserModel = get_user_model()
+
+
 class AskModel(models.Model):
     MAX_LENGTH_NAME = 50
 
@@ -14,14 +17,15 @@ class AskModel(models.Model):
     TEXTILE_TAPE_WITH_TPO_COVERAGE = 'Текстилна лента с TPO покритие'
     TEXTILE_TAPE_WITH_RUBBER_COVERAGE = 'Текстилна лента с гумено покритие'
 
-    TYPE_TEXTILE = [(x, x)for x in (TEXTILE_TAPE_WITHOUT_COVERAGE, TEXTILE_TAPE_WITH_PVC_COVERAGE, TEXTILE_TAPE_WITH_PU_COVERAGE, TEXTILE_TAPE_WITH_TPO_COVERAGE, TEXTILE_TAPE_WITH_RUBBER_COVERAGE)]
+    TYPE_TEXTILE = [(x, x) for x in (
+    TEXTILE_TAPE_WITHOUT_COVERAGE, TEXTILE_TAPE_WITH_PVC_COVERAGE, TEXTILE_TAPE_WITH_PU_COVERAGE,
+    TEXTILE_TAPE_WITH_TPO_COVERAGE, TEXTILE_TAPE_WITH_RUBBER_COVERAGE)]
 
     CONNECTION_METHOD_OPEN = 'Отворена'
     CONNECTION_METHOD_GLUED = 'Залепена'
     CONNECTION_METHOD_METAL = 'Метална връзка'
 
-    TYPE_CONNECTION = [(x, x)for x in (CONNECTION_METHOD_OPEN, CONNECTION_METHOD_GLUED, CONNECTION_METHOD_METAL)]
-
+    TYPE_CONNECTION = [(x, x) for x in (CONNECTION_METHOD_OPEN, CONNECTION_METHOD_GLUED, CONNECTION_METHOD_METAL)]
 
     name = models.CharField(
         max_length=MAX_LENGTH_NAME,
@@ -94,19 +98,80 @@ class AskModel(models.Model):
         on_delete=models.CASCADE,
     )
 
-class BearingBody(models.Model):
-    UCF = 'UCF'
-    UCFL = 'UCFL'
-    UCP = 'UCP'
-    UCT = 'UCT'
 
-    TYPE_BEARING_BODY = [(x, x) for x in (UCF, UCFL, UCP, UCT)]
+class UCFnumber(models.Model):
+    UCF_101 = 'UCF 101'
+    UCF_102 = 'UCF 102'
+    UCF_103 = 'UCF 103'
+    UCF_104 = 'UCF 104'
+    UCF_105 = 'UCF 105'
+    UCF_106 = 'UCF 106'
+    UCF_107 = 'UCF 107'
+    UCF_108 = 'UCF 108'
+    UCF_109 = 'UCF 109'
+    UCF_110 = 'UCF 110'
+    UCF_111 = 'UCF 111'
 
-    bearing_body = models.CharField(
-        max_length=max(len(x) for (x, _) in TYPE_BEARING_BODY),
-        choices=TYPE_BEARING_BODY,
-        verbose_name='Лагерно тяло',
+    UCF_CHOICES = [(x, x) for x in
+                   (UCF_101, UCF_102, UCF_103, UCF_104, UCF_105, UCF_106, UCF_107, UCF_108, UCF_109, UCF_110, UCF_111)]
 
+    ucf_number = models.CharField(
+        max_length=max(len(x) for (x, _) in UCF_CHOICES),
+        choices=UCF_CHOICES,
+        verbose_name='UCF No.'
+    )
+
+    user = models.ForeignKey(
+        UserModel,
+        on_delete=models.CASCADE,
+    )
+
+class UCFLbodies(models.Model):
+
+    name = models.CharField(
+        max_length=30,
+    )
+
+    UCFL_N = models.IntegerField()
+
+    D_3 = models.FloatField()
+
+    E = models.FloatField()
+
+    B = models.FloatField()
+
+    F = models.FloatField()
+
+    L = models.FloatField()
+
+    H = models.FloatField()
+
+    price = models.FloatField(
+        verbose_name='Цена'
     )
 
 
+    # user = models.ForeignKey(
+    #     UserModel,
+    #     on_delete=models.CASCADE,
+    # )
+
+    def __str__(self):
+        return f'{self.name} {self.UCFL_N}'
+
+class UserPurchases(models.Model):
+    UCF_ids = models.ForeignKey(
+        'UCFLbodies',
+        on_delete=models.CASCADE,
+    )
+
+    user = models.ForeignKey(
+        UserModel,
+        on_delete=models.CASCADE,
+    )
+
+    quantity = models.IntegerField(
+        null=True,
+        blank=True,
+        verbose_name='Количество',
+    )

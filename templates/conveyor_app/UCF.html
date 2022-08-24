@@ -1,0 +1,585 @@
+{% extends 'base.html' %}
+{% load crispy_forms_filters %}
+{% load static %}
+{% block page_content %}
+    <div style="background-color: #480410;height: 50px">
+        <div class="container mb-5 py-3">
+            <div class="row mb-5">
+                <h5 class="font-weight-bold" style="color: #dce9ef;font-style: italic">
+                    <a href="{% url 'home' %}" style="color: white;text-decoration: none"> Начало &#10097 </a>
+                    <a href="{% url 'bearing body' %}" style="color: white;text-decoration: none"> Лагерни тела
+                        &#10097 </a> Лагерно тяло UCF
+                </h5>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row align-items-start">
+            <div class="col d-flex justify-content-start py-3">
+                <div class="card mb-4">
+                    <div class="card-body p-2" style="background-color: #dce9ef">
+                        <div class="text-center">
+                            <h4 class="card-title" style="font-style: italic;color: #480410;">
+                                UCF схема</h4>
+                        </div>
+                        <img src="{% static 'ucf_2.jpg' %}" style="height: 25rem">
+                        <h3 class="text-center py-3"
+                            style="font-style: italic;color: #480410;border-bottom: 2px solid gray">
+                            Поръчайте артикул</h3>
+                        <form method="post">
+                            {% csrf_token %}
+                            {{ form|crispy }}
+                            <div class="text-center" style="background-color: #0af3ec">
+                                <button type="submit" class="btn btn-secondary btn-lg btn-block" style="color: white">
+                                    Поръчай
+                                </button>
+                                {{ success }}
+                            </div>
+                        </form>
+
+                    </div>
+
+                </div>
+                </a>
+
+            </div>
+            <div class="col d-flex justify-content-center py-3">
+                <div class="card mb-4">
+                    <div class="card-body p-2" style="background-color: #dce9ef">
+                        <div class="text-center">
+                            <h4 class="card-title" style="font-style: italic;color: #480410;">
+                                Тип UCFL</h4>
+                        </div>
+                        <img src="{% static 'UCFL_2.jpg' %}" style="height: 25rem">
+                    </div>
+                </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <h1 class="text-center">Артикули</h1>
+    <div class="container">
+        <div class="row align-items-end"
+             style="background-color: lightgray;height: 75px;border-bottom: 1px solid gray;border-top: 1px solid gray">
+            <div class="col">
+                <b>UCF</b>
+            </div>
+            <div class="col">
+                <b>Ø MM
+
+                </b>
+            </div>
+            <div class="col">
+                <b>A</b>
+            </div>
+            <div class="col">
+                <b>F</b>
+            </div>
+            <div class="col">
+                <b>(l)</b>
+            </div>
+            <div class="col">
+                <b>(r)</b>
+            </div>
+            <div class="col">
+                <b>(e)</b>
+            </div>
+            <div class="col">
+                <b>(f)</b>
+            </div>
+            <div class="col">
+                <b>(m)</b>
+            </div>
+            <div class="col">
+                <b>(w)</b>
+            </div>
+            <div class="col">
+                <b>(v)</b>
+            </div>
+            <div class="col">
+                <b>Кг.</b>
+            </div>
+            <div class="col">
+                <b>Цена</b>
+            </div>
+        </div>
+        <div class="row align-items-start"
+             style="background-color: lightgray;height: 75px;border-bottom: 1px solid gray;border-top: 1px solid gray">
+            <div class="col">
+                101
+                (UCF)
+            </div>
+            <div class="col">
+                20,5
+            </div>
+            <div class="col">
+                4
+            </div>
+            <div class="col">
+                11
+            </div>
+            <div class="col">
+                8
+            </div>
+            <div class="col">
+                4
+            </div>
+            <div class="col">
+                12,5
+            </div>
+            <div class="col">
+                16
+            </div>
+            <div class="col">
+                22
+            </div>
+            <div class="col">
+                7
+            </div>
+            <div class="col">
+                5
+            </div>
+            <div class="col">
+                0,84
+            </div>
+            <div class="col">
+                25,24
+            </div>
+
+        </div>
+        <div class="row align-items-start"
+             style="background-color: lightgray;height: 75px;border-bottom: 1px solid gray;border-top: 1px solid gray">
+            <div class="col">
+                102
+                (UCF)
+            </div>
+            <div class="col">
+                20,5
+            </div>
+            <div class="col">
+                4
+            </div>
+            <div class="col">
+                11
+            </div>
+            <div class="col">
+                8
+            </div>
+            <div class="col">
+                4
+            </div>
+            <div class="col">
+                12,5
+            </div>
+            <div class="col">
+                16
+            </div>
+            <div class="col">
+                22
+            </div>
+            <div class="col">
+                7
+            </div>
+            <div class="col">
+                5
+            </div>
+            <div class="col">
+                0,84
+            </div>
+            <div class="col">
+                25,24
+            </div>
+        </div>
+        <div class="row align-items-start"
+             style="background-color: lightgray;height: 75px;border-bottom: 1px solid gray;border-top: 1px solid gray">
+            <div class="col">
+                103
+                (UCF)
+            </div>
+            <div class="col">
+                20,5
+            </div>
+            <div class="col">
+                4
+            </div>
+            <div class="col">
+                11
+            </div>
+            <div class="col">
+                8
+            </div>
+            <div class="col">
+                4
+            </div>
+            <div class="col">
+                12,5
+            </div>
+            <div class="col">
+                16
+            </div>
+            <div class="col">
+                22
+            </div>
+            <div class="col">
+                7
+            </div>
+            <div class="col">
+                5
+            </div>
+            <div class="col">
+                0,84
+            </div>
+            <div class="col">
+                25,24
+            </div>
+        </div>
+        <div class="row align-items-start"
+             style="background-color: lightgray;height: 75px;border-bottom: 1px solid gray;border-top: 1px solid gray">
+            <div class="col">
+                104
+                (UCF)
+            </div>
+            <div class="col">
+                20,5
+            </div>
+            <div class="col">
+                4
+            </div>
+            <div class="col">
+                11
+            </div>
+            <div class="col">
+                8
+            </div>
+            <div class="col">
+                4
+            </div>
+            <div class="col">
+                12,5
+            </div>
+            <div class="col">
+                16
+            </div>
+            <div class="col">
+                22
+            </div>
+            <div class="col">
+                7
+            </div>
+            <div class="col">
+                5
+            </div>
+            <div class="col">
+                0,84
+            </div>
+            <div class="col">
+                25,24
+            </div>
+        </div>
+        <div class="row align-items-start"
+             style="background-color: lightgray;height: 75px;border-bottom: 1px solid gray;border-top: 1px solid gray">
+            <div class="col">
+                105
+                (UCF)
+            </div>
+            <div class="col">
+                20,5
+            </div>
+            <div class="col">
+                4
+            </div>
+            <div class="col">
+                11
+            </div>
+            <div class="col">
+                8
+            </div>
+            <div class="col">
+                4
+            </div>
+            <div class="col">
+                12,5
+            </div>
+            <div class="col">
+                16
+            </div>
+            <div class="col">
+                22
+            </div>
+            <div class="col">
+                7
+            </div>
+            <div class="col">
+                5
+            </div>
+            <div class="col">
+                0,84
+            </div>
+            <div class="col">
+                25,24
+            </div>
+        </div>
+        <div class="row align-items-start"
+             style="background-color: lightgray;height: 75px;border-bottom: 1px solid gray;border-top: 1px solid gray">
+            <div class="col">
+                106
+                (UCF)
+            </div>
+            <div class="col">
+                20,5
+            </div>
+            <div class="col">
+                4
+            </div>
+            <div class="col">
+                11
+            </div>
+            <div class="col">
+                8
+            </div>
+            <div class="col">
+                4
+            </div>
+            <div class="col">
+                12,5
+            </div>
+            <div class="col">
+                16
+            </div>
+            <div class="col">
+                22
+            </div>
+            <div class="col">
+                7
+            </div>
+            <div class="col">
+                5
+            </div>
+            <div class="col">
+                0,84
+            </div>
+            <div class="col">
+                25,24
+            </div>
+        </div>
+        <div class="row align-items-start"
+             style="background-color: lightgray;height: 75px;border-bottom: 1px solid gray;border-top: 1px solid gray">
+            <div class="col">
+                107
+                (UCF)
+            </div>
+            <div class="col">
+                22,5
+            </div>
+            <div class="col">
+                4
+            </div>
+            <div class="col">
+                11
+            </div>
+            <div class="col">
+                3
+            </div>
+            <div class="col">
+                4
+            </div>
+            <div class="col">
+                12,5
+            </div>
+            <div class="col">
+                16
+            </div>
+            <div class="col">
+                14
+            </div>
+            <div class="col">
+                7
+            </div>
+            <div class="col">
+                5
+            </div>
+            <div class="col">
+                0,76
+            </div>
+            <div class="col">
+                15,99
+            </div>
+        </div>
+        <div class="row align-items-start"
+             style="background-color: lightgray;height: 75px;border-bottom: 1px solid gray;border-top: 1px solid gray">
+            <div class="col">
+                108
+                (UCF)
+            </div>
+            <div class="col">
+                15,4
+            </div>
+            <div class="col">
+                3
+            </div>
+            <div class="col">
+                11
+            </div>
+            <div class="col">
+                2
+            </div>
+            <div class="col">
+                4
+            </div>
+            <div class="col">
+                15,2
+            </div>
+            <div class="col">
+                16
+            </div>
+            <div class="col">
+                13
+            </div>
+            <div class="col">
+                7
+            </div>
+            <div class="col">
+                5
+            </div>
+            <div class="col">
+                0,84
+            </div>
+            <div class="col">
+                13,99
+            </div>
+        </div>
+        <div class="row align-items-start"
+             style="background-color: lightgray;height: 75px;border-bottom: 1px solid gray;border-top: 1px solid gray">
+            <div class="col">
+                109
+                (UCF)
+            </div>
+            <div class="col">
+                20,5
+            </div>
+            <div class="col">
+                4
+            </div>
+            <div class="col">
+                11
+            </div>
+            <div class="col">
+                8
+            </div>
+            <div class="col">
+                4
+            </div>
+            <div class="col">
+                12,5
+            </div>
+            <div class="col">
+                16
+            </div>
+            <div class="col">
+                22
+            </div>
+            <div class="col">
+                7
+            </div>
+            <div class="col">
+                5
+            </div>
+            <div class="col">
+                0,84
+            </div>
+            <div class="col">
+                16,99
+            </div>
+        </div>
+        <div class="row align-items-start"
+             style="background-color: lightgray;height: 75px;border-bottom: 1px solid gray;border-top: 1px solid gray">
+            <div class="col">
+                110
+                (UCF)
+            </div>
+            <div class="col">
+                20,5
+            </div>
+            <div class="col">
+                1
+            </div>
+            <div class="col">
+                11
+            </div>
+            <div class="col">
+                8
+            </div>
+            <div class="col">
+                3
+            </div>
+            <div class="col">
+                12,5
+            </div>
+            <div class="col">
+                13
+            </div>
+            <div class="col">
+                22
+            </div>
+            <div class="col">
+                7
+            </div>
+            <div class="col">
+                5
+            </div>
+            <div class="col">
+                0,95
+            </div>
+            <div class="col">
+                17,99
+            </div>
+        </div>
+        <div class="row align-items-start"
+             style="background-color: lightgray;height: 75px;border-bottom: 1px solid gray;border-top: 1px solid gray">
+            {% for y in conveyor %}
+            <div class="col">
+                {{ y.id }}
+                (UCF)
+            </div>
+            <div class="col">
+                {{ y.telephone }}
+            </div>
+            <div class="col">
+                {{ y.name }}
+            </div>
+            <div class="col">
+                {{ y.type_of_tape }}
+            </div>
+            <div class="col">
+                {{ y.connection_method }}
+            </div>
+            <div class="col">
+                {{ y.width }}
+            </div>
+             <div class="col">
+                {{ y.length }}
+            </div>
+            {% endfor %}
+        </div>
+        <div class="row align-items-end">
+            <div class="col">
+{#                <form method="post">#}
+{#                {% csrf_token %}#}
+{#                    {% for i in new_form %}#}
+{#                        {{ i.name }}#}
+{#                        {{ i.last_name }}#}
+{#                        {{ i.surname }}#}
+{#                    {% endfor %}#}
+{#                    <button type="submit" class="btn btn-secondary btn-lg btn-block" style="color: white">#}
+{#                        Поръчай#}
+{#                    </button>#}
+{#                </form>#}
+            </div>
+            <div class="col">
+                <form method="post">
+
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,123 @@
+{% extends 'base.html' %}
+{% load crispy_forms_filters %}
+{% load static %}
+{% block page_content %}
+    <div style="background-color: #480410;height: 50px">
+        <div class="container mb-5 py-3">
+            <div class="row mb-5">
+                <h5 class="font-weight-bold" style="color: #dce9ef;font-style: italic">
+                    <a href="{% url 'home' %}" style="color: white"> Начало &#10097 </a> Лагерни тела
+                </h5>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row align-items-start">
+            <div class="col d-flex justify-content-start py-3">
+                <div class="card mb-4">
+                    <div class="card-body p-2" style="background-color: #dce9ef">
+                        <div class="text-center">
+                            <h4 class="card-title" style="font-style: italic;color: #480410;">
+                                UCF схема</h4>
+                        </div>
+                        <img src="{% static 'ucf_2.jpg' %}" style="height: 25rem">
+                        <h3 class="text-center py-3"
+                            style="font-style: italic;color: #480410;border-bottom: 2px solid gray">
+                            Поръчайте артикул</h3>
+                        <form method="post">
+                            {% csrf_token %}
+                            {{ form|crispy }}
+                            <div class="text-center" style="background-color: #0af3ec">
+                                <button type="submit" class="btn btn-secondary btn-lg btn-block" style="color: white">
+                                    Поръчай
+                                </button>
+                                {{ success }}
+                            </div>
+                        </form>
+
+                    </div>
+
+                </div>
+                </a>
+
+            </div>
+            <div class="col d-flex justify-content-center py-3">
+                <div class="card mb-4">
+                    <div class="card-body p-2" style="background-color: #dce9ef">
+                        <div class="text-center">
+                            <h4 class="card-title" style="font-style: italic;color: #480410;">
+                                Тип UCFL</h4>
+                        </div>
+                        <img src="{% static 'UCFL_2.jpg' %}" style="height: 25rem">
+                    </div>
+                </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <h1 class="text-center">Артикули</h1>
+    <div class="container">
+        <div class="row align-items-end"
+             style="background-color: lightgray;height: 75px;border-bottom: 1px solid gray;border-top: 1px solid gray">
+            <div class="col">
+                <b>UCFL N.</b>
+            </div>
+            <div class="col">
+                <b>D3</b>
+            </div>
+            <div class="col">
+                <b>E</b>
+            </div>
+            <div class="col">
+                <b>B</b>
+            </div>
+            <div class="col">
+                <b>F</b>
+            </div>
+            <div class="col">
+                <b>L</b>
+            </div>
+            <div class="col">
+                <b>H</b>
+            </div>
+            <div class="col">
+                <b>Цена</b>
+            </div>
+            <div class="col">
+
+            </div>
+        </div>
+        {% for body in items %}
+            <div class="row align-items-center"
+                 style="background-color: lightgray;height: 75px;border-bottom: 1px solid gray;border-top: 1px solid gray">
+                <div class="col">
+                    {{ body.UCFL_N }}
+                </div>
+                <div class="col">
+                    {{ body.D_3 }}
+                </div>
+                <div class="col">
+                    {{ body.E }}
+                </div>
+                <div class="col">
+                    {{ body.B }}
+                </div>
+                <div class="col">
+                    {{ body.F }}
+                </div>
+                <div class="col">
+                    {{ body.L }}
+                </div>
+                <div class="col">
+                    {{ body.H }}
+                </div>
+                <div class="col">
+                    {{ body.price }}лв
+                </div>
+                <div class="col">
+
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
