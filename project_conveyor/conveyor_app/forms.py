@@ -1,6 +1,7 @@
 from django import forms
+from django.forms import HiddenInput
 
-from project_conveyor.conveyor_app.models import AskModel, UCFnumber, UCFLbodies, UserPurchases
+from project_conveyor.conveyor_app.models import AskModel
 
 
 class CreateAskForm(forms.ModelForm):
@@ -60,53 +61,3 @@ class CreateAskForm(forms.ModelForm):
 
         }
 
-class CreateUCFaskform(forms.ModelForm):
-    def __init__(self, user, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        self.user = user
-
-    def save(self, commit=True):
-        ask_form = super().save(commit=False)
-
-        ask_form.user = self.user
-        if commit:
-            ask_form.save()
-        return ask_form
-
-    class Meta:
-        model = UCFnumber
-        fields = {'ucf_number'}
-
-# class CreateUCFLForm(forms.ModelForm):
-#     def __init__(self, user, *args, **kwargs):
-#         super().__init__(*args, **kwargs)
-#         self.user = user
-#
-#     def save(self, commit=True):
-#         ucfl_form = super().save(commit=False)
-#
-#         ucfl_form.user = self.user
-#         if commit:
-#             ucfl_form.save()
-#         return ucfl_form
-#
-#     class Meta:
-#         model = UCFLbodies
-#         fields = {'quantity'}
-
-class PurchaseForm(forms.ModelForm):
-    def __init__(self, user, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        self.user = user
-
-    def save(self, commit=True):
-        ucfl_form = super().save(commit=False)
-
-        ucfl_form.user = self.user
-        if commit:
-            ucfl_form.save()
-        return ucfl_form
-
-    class Meta:
-        model = UserPurchases
-        fields = {'quantity'}

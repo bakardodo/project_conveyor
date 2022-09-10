@@ -2,10 +2,11 @@ from django.contrib.auth import get_user_model
 from django.db import models
 from jsonfield import JSONField
 
+
 # Create your models here.
 # -*- coding: utf-8 -*-
 
-UserModel = get_user_model()
+User = get_user_model()
 
 
 class AskModel(models.Model):
@@ -94,84 +95,151 @@ class AskModel(models.Model):
     )
 
     user = models.ForeignKey(
-        UserModel,
+        User,
         on_delete=models.CASCADE,
     )
 
 
-class UCFnumber(models.Model):
-    UCF_101 = 'UCF 101'
-    UCF_102 = 'UCF 102'
-    UCF_103 = 'UCF 103'
-    UCF_104 = 'UCF 104'
-    UCF_105 = 'UCF 105'
-    UCF_106 = 'UCF 106'
-    UCF_107 = 'UCF 107'
-    UCF_108 = 'UCF 108'
-    UCF_109 = 'UCF 109'
-    UCF_110 = 'UCF 110'
-    UCF_111 = 'UCF 111'
-
-    UCF_CHOICES = [(x, x) for x in
-                   (UCF_101, UCF_102, UCF_103, UCF_104, UCF_105, UCF_106, UCF_107, UCF_108, UCF_109, UCF_110, UCF_111)]
-
-    ucf_number = models.CharField(
-        max_length=max(len(x) for (x, _) in UCF_CHOICES),
-        choices=UCF_CHOICES,
-        verbose_name='UCF No.'
-    )
-
-    user = models.ForeignKey(
-        UserModel,
+class Customer(models.Model):
+    user = models.OneToOneField(
+        User,
+        null=True,
+        blank=True,
         on_delete=models.CASCADE,
     )
-
-class UCFLbodies(models.Model):
 
     name = models.CharField(
-        max_length=30,
+        max_length=200,
+        null=True,
     )
-
-    UCFL_N = models.IntegerField()
-
-    D_3 = models.FloatField()
-
-    E = models.FloatField()
-
-    B = models.FloatField()
-
-    F = models.FloatField()
-
-    L = models.FloatField()
-
-    H = models.FloatField()
-
-    price = models.FloatField(
-        verbose_name='Цена'
-    )
-
-
-    # user = models.ForeignKey(
-    #     UserModel,
-    #     on_delete=models.CASCADE,
-    # )
 
     def __str__(self):
-        return f'{self.name} {self.UCFL_N}'
+        return self.name
 
-class UserPurchases(models.Model):
-    UCF_ids = models.ForeignKey(
-        'UCFLbodies',
-        on_delete=models.CASCADE,
+class Product(models.Model):
+    name = models.CharField(
+        max_length=200,
+        null=True,
     )
 
-    user = models.ForeignKey(
-        UserModel,
-        on_delete=models.CASCADE,
+    price = models.FloatField()
+
+    digital = models.BooleanField(default=False, null=True, blank=True)
+
+    image = models.ImageField(
+        null=True,
+        blank=True,
+    )
+
+    def __str__(self):
+        return self.name
+
+    @property
+    def imageURL(self):
+        try:
+            url = self.image.url
+        except:
+            url = ''
+        return url
+
+
+class Order(models.Model):
+    customer = models.ForeignKey(
+        'Customer',
+        on_delete=models.SET_NULL,
+        blank=True,
+        null=True,
+    )
+
+    date_ordered = models.DateTimeField(
+        auto_now_add=True
+    )
+
+    complete = models.BooleanField(
+        default=False,
+        null=True,
+        blank=True,
+    )
+
+    transaction_id = models.CharField(
+        max_length=200,
+        null=True,
+    )
+
+    def __str__(self):
+        return str(self.id)
+
+class OrderItem(models.Model):
+    product = models.ForeignKey(
+        'Product',
+        on_delete=models.SET_NULL,
+        blank=True,
+        null=True,
+    )
+
+    order = models.ForeignKey(
+        'Order',
+        on_delete=models.SET_NULL,
+        blank=True,
+        null=True,
     )
 
     quantity = models.IntegerField(
+        default=0,
         null=True,
         blank=True,
-        verbose_name='Количество',
     )
+
+    date_added = models.DateTimeField(
+        auto_now_add=True,
+    )
+
+    @property
+    def get_total(self):
+        total = self.product.price * self.quantity
+        return total
+
+class ShippingAdress(models.Model):
+    customer = models.ForeignKey(
+        'Customer',
+        on_delete=models.SET_NULL,
+        blank=True,
+        null=True,
+    )
+
+    order = models.ForeignKey(
+        'Order',
+        on_delete=models.SET_NULL,
+        blank=True,
+        null=True,
+    )
+
+    address = models.CharField(
+        max_length=200,
+        null=True,
+    )
+
+    city = models.CharField(
+        max_length=200,
+        null=True,
+    )
+
+    state = models.CharField(
+        max_length=200,
+        null=True,
+    )
+
+    zipcode = models.CharField(
+        max_length=200,
+        null=True,
+    )
+
+    date_added = models.CharField(
+        max_length=200,
+        null=True,
+    )
+
+    def __str__(self):
+        return self.address
+
+

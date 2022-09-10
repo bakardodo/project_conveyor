@@ -1,14 +1,9 @@
 from django.contrib import admin
-
+from .models import *
 # Register your models here.
-from project_conveyor.conveyor_app.models import UCFLbodies, UserPurchases
 
-
-@admin.register(UCFLbodies)
-class UCFLbodiesAdmin(admin.ModelAdmin):
-    pass
-
-@admin.register(UserPurchases)
-class UserPurchasesAdmin(admin.ModelAdmin):
-    pass
-
+admin.site.register(Customer)
+admin.site.register(Product)
+admin.site.register(Order)
+admin.site.register(OrderItem)
+admin.site.register(ShippingAdress)
