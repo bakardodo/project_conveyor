@@ -1,7 +1,7 @@
 from django import forms
 from django.forms import HiddenInput
 
-from project_conveyor.conveyor_app.models import AskModel
+from project_conveyor.conveyor_app.models import AskModel, ShippingAdress
 
 
 class CreateAskForm(forms.ModelForm):
@@ -61,3 +61,45 @@ class CreateAskForm(forms.ModelForm):
 
         }
 
+class ShippingAddressForm(forms.ModelForm):
+    def __init__(self, user, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.user = user
+
+    def save(self, commit=True):
+        shipping_address = super().save(commit=False)
+
+        shipping_address.user = self.user
+        if commit:
+            shipping_address.save()
+        return shipping_address
+
+    class Meta:
+        model = ShippingAdress
+        fields = ('email', 'address', 'city', 'state', 'zipcode')
+        # widgets = {
+        #     'email': forms.TextInput(
+        #         attrs={
+        #             'placeholder': 'Въведете вашият имейл',
+        #         }
+        #     ),
+        #     'address': forms.TextInput(
+        #         attrs={
+        #             'placeholder': 'Адрес за доставка',
+        #         }
+        #     ),
+        #     'city': forms.TextInput(
+        #         attrs={
+        #             'placeholder': 'Въведете вашият град',
+        #         }
+        #     ),
+        #     'state': forms.TextInput(
+        #         attrs={
+        #             'placeholder': 'Въведете вашият имейл',
+        #         }
+        #     ),
+        #     'zipcode': forms.TextInput(
+        #         attrs={
+        #             'placeholder': 'Въведете вашият имейл',
+        #         }
+        #     ),

@@ -1,0 +1,179 @@
+{% extends 'base.html' %}
+{% load crispy_forms_filters %}
+{% load static %}
+{% block page_content %}
+    <body>
+
+    <div class="container">
+        <div class="row align-items-start">
+            <div class="col d-flex justify-content-start py-3">
+                <div class="card mb-4">
+                    <div class="card-body p-2" style="background-color: #dce9ef;width: 30rem">
+                        <div class="text-center">
+                            <h4 class="card-title" style="font-style: italic;color: #480410;">
+                                Вашите данни</h4>
+                        </div>
+                        <form method="post" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            {{ form|crispy }}
+                            <div class="text-center">
+                                <button class="btn btn-primary mt-2" type="submit">Изпрати</button>
+                            </div>
+                        </form>
+
+
+                    </div>
+
+                </div>
+                </a>
+
+            </div>
+            <div class="col d-flex justify-content-center py-3">
+                <div class="card mb-4">
+                    <div class="card-body p-2" style="background-color: #dce9ef">
+                        <div class="text-center">
+                            <h4 class="card-title" style="font-style: italic;color: #480410;">
+                                Вашата поръчка</h4>
+                        </div>
+                        {% for item in items %}
+                            <div class="row py-3" style="border-bottom: 2px solid darkgray">
+                                <div class="col">
+                                </div>
+                                <div class="col">
+                                    Име
+                                </div>
+                                <div class="col">
+                                    Цена
+                                </div>
+                                <div class="col">
+                                    Количество
+                                </div>
+                            </div>
+                            <div class="row py-3">
+                                <div class="col">
+                                    <img src="{{ item.product.imageURL }}" style="height: 5rem">
+                                </div>
+                                <div class="col">
+                                    {{ item.product.name }}
+                                </div>
+                                <div class="col">
+                                    {{ item.product.price }}
+                                </div>
+                                <div class="col">
+                                    {{ item.quantity }}
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    {#    <div class="container">#}
+    {#        <div class="card">#}
+    {#            <div class="card-body">#}
+    {#                {% for item in items %}#}
+    {#                    <div class="row py-3" style="border-bottom: 2px solid darkgray">#}
+    {#                        <div class="col">#}
+    {#                        </div>#}
+    {#                        <div class="col">#}
+    {#                            Име#}
+    {#                        </div>#}
+    {#                        <div class="col">#}
+    {#                            Цена#}
+    {#                        </div>#}
+    {#                        <div class="col">#}
+    {#                            Количество#}
+    {#                        </div>#}
+    {#                    </div>#}
+    {#                    <div class="row py-3">#}
+    {#                        <div class="col">#}
+    {#                            <img src="{{ item.product.imageURL }}" style="height: 5rem">#}
+    {#                        </div>#}
+    {#                        <div class="col">#}
+    {#                            {{ item.product.name }}#}
+    {#                        </div>#}
+    {#                        <div class="col">#}
+    {#                            {{ item.product.price }}#}
+    {#                        </div>#}
+    {#                        <div class="col">#}
+    {#                            {{ item.quantity }}#}
+    {#                        </div>#}
+    {#                    </div>#}
+    {#                {% endfor %}#}
+    {##}
+    {##}
+    {#            </div>#}
+    {#        </div>#}
+    {#    </div>#}
+    {#    <div class="container py-3">#}
+    {#        <div class="card">#}
+    {#            <div class="card-body">#}
+    {#                <div class="row py-3" style="border-bottom: 2px solid darkgray">#}
+    {#                    <div class="col">#}
+    {#                    </div>#}
+    {#                    <div class="col">#}
+    {#                        Име#}
+    {#                    </div>#}
+    {#                    <div class="col">#}
+    {#                        Цена#}
+    {#                    </div>#}
+    {#                    <div class="col">#}
+    {#                        Количество#}
+    {#                    </div>#}
+    {#                </div>#}
+    {#            </div>#}
+    {#    <div class="container py-3">#}
+    {#        <div class="card">#}
+    {#            <div class="card-body">#}
+    {##}
+    {#            </div>#}
+    {#        </div>#}
+    {#    </div>#}
+    {#    <div class="container py-3">#}
+    {#        <div class="card">#}
+    {#            <div class="card-body">#}
+    {##}
+    {#            </div>#}
+    {#        </div>#}
+    {#    </div>#}
+
+
+    {#    <div class="container">#}
+    {#        <div class="row">#}
+    {#            <div class="col d-flex justify-content-center py-3">#}
+    {#                <div class="card mb-4">#}
+    {#                    <div class="card-body p-2" style="background-color: #dce9ef; width: 25rem">#}
+    {#                        <div class="text-center">#}
+    {#                            <h4 class="card-title" style="font-style: italic;color: #480410;">#}
+    {#                                Вашaта поръчка</h4>#}
+    {#                        </div>#}
+    {##}
+    {#                    </div>#}
+    {##}
+    {##}
+    {#                </div>#}
+    {##}
+    {#            </div>#}
+    {#        </div>#}
+    {#            <div class="col d-flex justify-content-center py-3">#}
+    {#                <div class="card mb-4">#}
+    {#                    <div class="card-body p-2" style="background-color: #dce9ef">#}
+    {#                        <div class="text-center">#}
+    {#                            <h4 class="card-title" style="font-style: italic;color: #480410;">#}
+    {#                                Вашата поръчка</h4>#}
+    {##}
+    {#                        </div>#}
+    {#                        <img src="{% static 'ucf_2.jpg' %}" style="height: 25rem">#}
+    {##}
+    {#                    </div>#}
+    {##}
+    {#                </div>#}
+    {#            </div>#}
+    {#    </div>#}
+    {#    </div>#}
+    </body>
+
+
+{% endblock %}
