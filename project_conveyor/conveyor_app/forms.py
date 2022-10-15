@@ -6,7 +6,7 @@ from project_conveyor.conveyor_app.models import AskModel, ShippingAdress
 
 class CreateAskForm(forms.ModelForm):
     def __init__(self, user, *args, **kwargs):
-        super().__init__(*args,**kwargs)
+        super().__init__(*args, **kwargs)
         self.user = user
 
     def save(self, commit=True):

@@ -1,4 +1,5 @@
 from django.contrib.auth import get_user_model
+from django.contrib.auth.models import User
 from django.db import models
 from jsonfield import JSONField
 
@@ -6,7 +7,6 @@ from jsonfield import JSONField
 # Create your models here.
 # -*- coding: utf-8 -*-
 
-User = get_user_model()
 
 
 class AskModel(models.Model):
@@ -113,6 +113,11 @@ class Customer(models.Model):
         null=True,
     )
 
+    email = models.CharField(
+        max_length=200,
+        null=True,
+    )
+
     def __str__(self):
         return self.name
 
@@ -127,6 +132,27 @@ class Product(models.Model):
     digital = models.BooleanField(default=False, null=True, blank=True)
 
     image = models.ImageField(
+        null=True,
+        blank=True,
+    )
+
+    diameter = models.FloatField(
+        null=True,
+        blank=True,
+    )
+
+    D_3 = models.FloatField(
+        null=True,
+        blank=True,
+        verbose_name='D3'
+    )
+
+    E = models.FloatField(
+        null=True,
+        blank=True,
+    )
+
+    B = models.FloatField(
         null=True,
         blank=True,
     )

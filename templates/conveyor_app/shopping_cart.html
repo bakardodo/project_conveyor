@@ -10,11 +10,10 @@
                     {% for item in items %}
                         <div class="card mb-4">
                             <div class="card-body p-4">
-
                                 <div class="row align-items-center">
                                     <div class="col-md-2">
                                         <img src="{{ item.product.imageURL }}"
-                                             class="img-fluid" alt="Generic placeholder image">
+                                             class="img-fluid" style="height: 5rem" alt="Generic placeholder image">
                                     </div>
                                     <div class="col-md-2 d-flex justify-content-center">
                                         <div>
@@ -37,7 +36,7 @@
                                     <div class="col-md-2 d-flex justify-content-center">
                                         <div>
                                             <p class="small text-muted mb-4 pb-2">Обща цена</p>
-                                            <p class="lead fw-normal mb-0">{{ item.get_total }}лв.</p>
+                                            <p class="lead fw-normal mb-0">{{ item.get_total|floatformat:2 }}лв.</p>
                                         </div>
                                     </div>
                                 </div>
@@ -52,7 +51,7 @@
                             <div class="float-end">
                                 <p class="mb-0 me-5 d-flex align-items-center">
                                     <span class="small text-muted me-2">Крайна цена:</span> <span
-                                        class="lead fw-normal">{{ order.get_cart_total }}лв.</span>
+                                        class="lead fw-normal">{{ order.get_cart_total|floatformat:2 }}лв.</span>
                                 </p>
                             </div>
 

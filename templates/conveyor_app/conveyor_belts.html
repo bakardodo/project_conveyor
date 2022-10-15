@@ -9,98 +9,56 @@
                     <a href="{% url 'home' %}" style="color: white"> Начало &#10097 </a> Kонвейерни ленти
                 </h5>
             </div>
-            10064, 73,95,
         </div>
     </div>
     <div class="container mb-5 py-3">
         <div class="row mb-5">
-            <div class="card" style="width: 25rem;height: 14rem;background-color: #d5d5d5">
-                <p class="font-weight-bold" style="font-size: 20px">Текстилни ленти без покритие</p>
-                {#                    <h5>#}
-                {#                        GAH-654-H#}
-                {#                    </h5>#}
-                {#                    <h5>#}
-                {#                        GAH-660-K#}
-                {#                    </h5>#}
-                {#                    <h5>#}
-                {#                        GAH-665-R#}
-                {#                    </h5>#}
-                {#                    <h5>#}
-                {#                        GAH-690-F#}
-                {#                    </h5>#}
-                <p class="font-weight-bold" style="font-size: 20px">Текстилни ленти с PVC покритие</p>
-                {#                    <h5>#}
-                {#                        SU-65-H#}
-                {#                    </h5>#}
-                {#                    <h5>#}
-                {#                        SU-660-K#}
-                {#                    </h5>#}
-                {#                    <h5>#}
-                {#                        GAH-504-FF#}
-                {#                    </h5>#}
-                {#                    <h5>#}
-                {#                        GY-350-GH#}
-                {#                    </h5>#}
-                <p class="font-weight-bold" style="font-size: 20px">Текстилни ленти с PU покритие</p>
-                {#                    <h5>#}
-                {#                        JF-30-H#}
-                {#                    </h5>#}
-                {#                    <h5>#}
-                {#                        KJ-66-K#}
-                {#                    </h5>#}
-                {#                    <h5>#}
-                {#                        JF-50-F#}
-                {#                    </h5>#}
-                {#                    <h5>#}
-                {#                        GY-350-GH#}
-                {#                    </h5>#}
-                <p class="font-weight-bold" style="font-size: 20px">Текстилни ленти с TPU покритие</p>
-                {#                     <h5>#}
-                {#                        FF-97-H#}
-                {#                    </h5>#}
-                {#                    <h5>#}
-                {#                        LK-45-K#}
-                {#                    </h5>#}
-                {#                    <h5>#}
-                {#                        LK-96-F#}
-                {#                    </h5>#}
-                {#                    <h5>#}
-                {#                        LF-35-GH#}
-                {#                    </h5>#}
-                <p class="font-weight-bold" style="font-size: 20px">Текстилни ленти с гумено покритие</p>
-                {#                     <h5>#}
-                {#                        FGF-306-H#}
-                {#                    </h5>#}
-                {#                    <h5>#}
-                {#                        KKJ-662-K#}
-                {#                    </h5>#}
-                {#                    <h5>#}
-                {#                        JJF-665-F#}
-                {#                    </h5>#}
-                {#                    <h5>#}
-                {#                        DFF-500-G#}
-                {#                    </h5>#}
-
+            <div class="col d-flex justify-content-center">
+                <div class="card mb-4" style="width: 25rem">
+                    <div class="card-body p-2" style="background-color: #dce9ef">
+                        <div class="text-center">
+                            <h4 class="card-title" style="font-style: italic;color: #480410;">
+                                Информация</h4>
+                        </div>
+                        <div class="d-flex justify-content-center">
+                            <img src="{% static 'black_conv.jpg' %}" style="height: 24rem">
+                        </div>
+                        <div class="d-flex justify-content-end">
+                            <h5 style="font-style: italic;color: #480410;">
+                                Нашите динамични многофункционални конвейери и транспортьори, повишават
+                                ефективността и производителността на складовите пространства, производствените бази,
+                                логистичните центрове и дистрибуционните хъбове. Основната цел при изграждането им е да
+                                бъде намалено времето за транспортиране на стоки между зоната на получаването им и
+                                мястото за съхранение или пикиране, което увеличава продуктивността и ефективността.
+                                Същевременно, нашите транспортьорите значително намаляват човешкия труд и дистанциите,
+                                които
+                                операторите трябва да изминават при подготовката на всяка заявка към склада.
+                                Системите от конвейери могат да бъдат с лентова, верижна или ролкова тяга.
+                                <b>
+                                    Доверете ни се и подобрете произведителността си !
+                                </b>
+                            </h5>
+                        </div>
+                    </div>
+                </div>
             </div>
-
-            <div class="col d-flex justify-content-end">
-                <div class="card" style="width: 25rem;background-color: #d5d5d5">
-                    <div class="card-body">
-                        <h3 class="text-center">
-                            Направете запитване
-                        </h3>
-                        <form method="post">
+            <div class="col  d-flex justify-content-center">
+                <div class="card mb-4" style="width: 28rem">
+                    <div class="card-body p-2" style="background-color: #dce9ef">
+                        <div class="text-center">
+                            <h4 class="card-title" style="font-style: italic;color: #480410;">
+                                Направете запитване</h4>
+                        </div>
+                        <form method="post" enctype="multipart/form-data">
                             {% csrf_token %}
                             {{ form|crispy }}
-                            <div class="text-center">
-                                <button class="btn btn-primary mt-2" type="submit">Изпрати</button>
-                            </div>
+                            <button type="submit" class="btn btn-secondary btn-lg btn-block" style="color: white">
+                                Направи запитване
+                            </button>
                         </form>
                     </div>
                 </div>
-
             </div>
-
         </div>
     </div>
 

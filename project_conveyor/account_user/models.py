@@ -1,28 +1,30 @@
+from django.contrib.auth import get_user_model
 from django.contrib.auth.base_user import AbstractBaseUser
 from django.contrib.auth.models import PermissionsMixin
 from django.db import models
 
 # Create your models here.
-from project_conveyor.account_user.manager import ConveyorUserManager
+# from project_conveyor.account_user.manager import ConveyorUserManager
 
 
-class ConveyorUser(AbstractBaseUser, PermissionsMixin):
-    USERNAME_LENGTH = 40
-    username = models.CharField(
-        max_length=USERNAME_LENGTH,
-        unique=True,
-    )
+# class ConveyorUser(AbstractBaseUser, PermissionsMixin):
+#     USERNAME_LENGTH = 40
+#     username = models.CharField(
+#         max_length=USERNAME_LENGTH,
+#         unique=True,
+#     )
+#
+#     data_joined = models.DateTimeField(
+#         auto_now_add=True,
+#     )
+#     is_staff = models.BooleanField(
+#         default=False,
+#     )
+#
+#     USERNAME_FIELD = 'username'
+#
+#     objects = ConveyorUserManager()
 
-    data_joined = models.DateTimeField(
-        auto_now_add=True,
-    )
-    is_staff = models.BooleanField(
-        default=False,
-    )
-
-    USERNAME_FIELD = 'username'
-
-    objects = ConveyorUserManager()
 
 
 class Profile(models.Model):
@@ -80,11 +82,11 @@ class Profile(models.Model):
 
     phone_number = models.IntegerField()
 
-    user = models.OneToOneField(
-        ConveyorUser,
-        on_delete=models.CASCADE,
-        primary_key=True,
-    )
+    # user = models.OneToOneField(
+    #     ConveyorUser,
+    #     on_delete=models.CASCADE,
+    #     primary_key=True,
+    # )
 
     addres = models.TextField()
 

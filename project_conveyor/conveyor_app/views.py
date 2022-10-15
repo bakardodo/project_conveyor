@@ -1,3 +1,5 @@
+import json
+
 from django.contrib import messages
 from django.shortcuts import render, redirect
 from django.http import JsonResponse
@@ -6,6 +8,13 @@ from django.urls import reverse_lazy
 from django.views.generic import TemplateView, CreateView, ListView
 
 from project_conveyor.conveyor_app.forms import CreateAskForm, ShippingAddressForm
+
+
+def get_products(context):
+    products = Product.objects.all()
+    context['products'] = products
+    return context
+
 
 count = 0
 # def create_conveyor_question(request):
@@ -21,7 +30,7 @@ count = 0
 #     }
 #
 #     return render(request, 'conveyor_app/dashboard.html', context)
-from project_conveyor.conveyor_app.models import AskModel, Product, Order, ShippingAdress
+from project_conveyor.conveyor_app.models import AskModel, Product, Order, ShippingAdress, OrderItem
 
 
 def create_home_view(request):
@@ -57,7 +66,6 @@ class CreateUCFLBearingView(TemplateView):
     template_name = 'conveyor_app/UCFL.html'
 
     def get_context_data(self, **kwargs):
-        user = self.request.user
         context = super().get_context_data(**kwargs)
         products = Product.objects.all()
         context['products'] = products
@@ -66,11 +74,12 @@ class CreateUCFLBearingView(TemplateView):
 
 def cart(request):
     if request.user.is_authenticated:
-        customer = request.user.pk
+        customer = request.user.customer
         order, created = Order.objects.get_or_create(customer=customer, complete=False)
         items = order.orderitem_set.all()
     else:
         items = []
+        order = {'get_cart_total': 0, 'get_cart_items': 0}
 
 
     context = {'items': items, 'order': order}
@@ -95,31 +104,65 @@ def cart(request):
 #         return items
 
 def checkout(request):
-    form = ShippingAddressForm
+
     if request.user.is_authenticated:
-        customer = request.user.pk
+        customer = request.user.customer
         order, created = Order.objects.get_or_create(customer=customer, complete=False)
         items = order.orderitem_set.all()
-        if request.method == 'POST':
-            form = ShippingAddressForm(request.POST)
-            if form.is_valid():
-                form.save()
-                return redirect('conveyor questions')
-        else:
-            form = ShippingAddressForm(request.user)
     else:
         items = []
         order = {'get_cart_total': 0, 'get_cart_items': 0}
-        if request.method == 'POST':
-            form = ShippingAddressForm(request.POST)
-            if form.is_valid():
-                form.save()
-                return redirect('conveyor questions')
-        else:
-            form = ShippingAddressForm(request.user)
-
-    context = {'items': items, 'order': order, 'form': form}
+    context = {'items': items, 'order': order}
     return render(request, 'conveyor_app/checkout.html', context)
+    # form = ShippingAddressForm
+    # if request.user.is_authenticated:
+    #     customer = request.user.pk
+    #     order, created = Order.objects.get_or_create(customer=customer, complete=False)
+    #     items = order.orderitem_set.all()
+    #     if request.method == 'POST':
+    #         form = ShippingAddressForm(request.POST)
+    #         if form.is_valid():
+    #             form.save()
+    #             return redirect('conveyor questions')
+    #     else:
+    #         form = ShippingAddressForm(request.user)
+    # else:
+    #     items = []
+    #     order = {'get_cart_total': 0, 'get_cart_items': 0}
+    #     if request.method == 'POST':
+    #         form = ShippingAddressForm(request.POST)
+    #         if form.is_valid():
+    #             form.save()
+    #             return redirect('conveyor questions')
+    #     else:
+    #         form = ShippingAddressForm(request.user)
+    #
+    # context = {'items': items, 'order': order, 'form': form}
+    # return render(request, 'conveyor_app/checkout.html', context)
 
-def update_view(request):
+def updateItem(request):
+    data = json.loads(request.body)
+    productId = data['productId']
+    action = data['action']
+
+    print('Action:', action)
+    print('productId:', productId)
+
+    customer = request.user.customer
+    product = Product.objects.get(id=productId)
+    order, created = Order.objects.get_or_create(customer=customer, complete=False)
+
+    orderItem, created = OrderItem.objects.get_or_create(order=order, product=product)
+
+    if action == 'add':
+        orderItem.quantity = (orderItem.quantity + 1)
+    elif action == 'remove':
+        orderItem.quantity = (orderItem.quantity - 1)
+
+    orderItem.save()
+
+    if orderItem.quantity <= 0:
+        orderItem.delete()
+
     return JsonResponse('Item was added', safe=False)
+
