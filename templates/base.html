@@ -33,8 +33,30 @@
             }
             return cookieValue;
         }
+
         var csrftoken = getToken('csrftoken');
 
+        function getCookie(name){
+            var cookieArr = document.cookie.split(';');
+
+            for(var i = 0; i < cookieArr.length; i++){
+                var cookiePair = cookieArr[i].split('=');
+                if(name == cookiePair[0].trim()){
+                    return decodeURIComponent(cookiePair[1])
+                }
+            }
+
+            return null
+        }
+
+        var cart = JSON.parse(getCookie('cart'))
+        if(cart == undefined){
+            cart = {}
+            console.log('Cart was created!')
+            document.cookie = 'cart=' + JSON.stringify(cart) + ';domain=;path=/'
+
+        }
+        console.log('Cart:', cart)
     </script>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
@@ -161,7 +183,7 @@
                            aria-label="View your shopping cart" style="font-size: 20px;color: #545151">
                             <i class="fas fa fa-shopping-cart fa-lg"></i>
                             <span class="cart-basket d-flex align-items-center justify-content-center">
-                            <b>{{ order.get_cart_items }}</b>
+                            <b>{{ cart_items }}</b>
                         </span>
                         </a>
                     </li>

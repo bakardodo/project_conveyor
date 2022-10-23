@@ -1,3 +1,4 @@
+import datetime
 import json
 
 from django.contrib import messages
@@ -10,35 +11,25 @@ from django.views.generic import TemplateView, CreateView, ListView
 from project_conveyor.conveyor_app.forms import CreateAskForm, ShippingAddressForm
 
 
-def get_products(context):
+def get_products(context):  # get all our products of database
     products = Product.objects.all()
     context['products'] = products
     return context
 
-
-count = 0
-# def create_conveyor_question(request):
-#     if request.method == 'POST':
-#         form = CreateAskForm(request.POST)
-#         if form.is_valid():
-#             form.save()
-#             return redirect('conveyor questions')
-#     else:
-#         form = CreateAskForm()
-#     context = {
-#         'form': form,
-#     }
-#
-#     return render(request, 'conveyor_app/dashboard.html', context)
 from project_conveyor.conveyor_app.models import AskModel, Product, Order, ShippingAdress, OrderItem
 
 
 def create_home_view(request):
-    customer = request.user.pk
-    order, created = Order.objects.get_or_create(customer=customer, complete=False)
-    items = order.orderitem_set.all()
-
-    context = {'items': items, 'order': order}
+    cart_items = None
+    if request.user.is_authenticated:
+        customer = request.user.customer
+        order, created = Order.objects.get_or_create(customer=customer, complete=False)
+        items = order.orderitem_set.all()
+        cart_items = order.get_cart_items
+    else:
+        items = []
+        order = {'get_cart_total': 0, 'get_cart_items': 0, 'shipping': False}
+    context = {'items': items, 'order': order, 'cart_items': cart_items}
     return render(request, 'conveyor_app/dashboard.html', context)
 
 
@@ -53,36 +44,101 @@ class CreateConveyorBeltView(CreateView):
         kwargs['user'] = self.request.user
         return kwargs
 
-
-class CreateBearingBodyView(TemplateView):
-    template_name = 'conveyor_app/bearing_bodies.html'
-
-
-class CreateUCFBearingView(TemplateView):
-    template_name = 'conveyor_app/UCF.html'
-
-
-class CreateUCFLBearingView(TemplateView):
-    template_name = 'conveyor_app/UCFL.html'
-
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        products = Product.objects.all()
-        context['products'] = products
-        return context
+        customer = self.request.user.customer
+        order, created = Order.objects.get_or_create(customer=customer, complete=False)
+        items = order.orderitem_set.all()
+        cart_items = order.get_cart_items
+        context['cart_items'] = cart_items
+        context['shipping'] = False
+        return get_products(context)
 
-
-def cart(request):
+def bearing_bodies_view(request):
+    cart_items = None
     if request.user.is_authenticated:
         customer = request.user.customer
         order, created = Order.objects.get_or_create(customer=customer, complete=False)
         items = order.orderitem_set.all()
+        cart_items = order.get_cart_items
     else:
         items = []
-        order = {'get_cart_total': 0, 'get_cart_items': 0}
+        order = {'get_cart_total': 0, 'get_cart_items': 0, 'shipping': False}
+
+    context = {'items': items, 'order': order, 'cart_items': cart_items}
+    return render(request, 'conveyor_app/bearing_bodies.html', context)
+# class CreateBearingBodyView(TemplateView):
+#     template_name = 'conveyor_app/bearing_bodies.html'
+#
+#     def get_context_data(self, **kwargs):
+#         context = super().get_context_data(**kwargs)
+#         customer = self.request.user.customer
+#         order, created = Order.objects.get_or_create(customer=customer, complete=False)
+#         items = order.orderitem_set.all()
+#         cart_items = order.get_cart_items
+#         context['cart_items'] = cart_items
+#         context['shipping'] = False
+#         return get_products(context)
 
 
-    context = {'items': items, 'order': order}
+def ucf_bearing_view(request):
+    cart_items = None
+    if request.user.is_authenticated:
+        customer = request.user.customer
+        order, created = Order.objects.get_or_create(customer=customer, complete=False)
+        items = order.orderitem_set.all()
+        cart_items = order.get_cart_items
+    else:
+        items = []
+        order = {'get_cart_total': 0, 'get_cart_items': 0, 'shipping': False}
+
+    context = {'items': items, 'order': order, 'cart_items': cart_items}
+    return render(request, 'conveyor_app/UCF.html', context)
+# class CreateUCFBearingView(TemplateView):
+#     template_name = 'conveyor_app/UCF.html'
+#
+#     def get_context_data(self, **kwargs):
+#         context = super().get_context_data(**kwargs)
+#         customer = self.request.user.customer
+#         order, created = Order.objects.get_or_create(customer=customer, complete=False)
+#         items = order.orderitem_set.all()
+#         cart_items = order.get_cart_items
+#         context['cart_items'] = cart_items
+#         context['shipping'] = False
+#         return get_products(context)
+
+
+
+
+def ucfl_bearing_body(request):
+    cart_items = None
+    if request.user.is_authenticated:
+        customer = request.user.customer
+        order, created = Order.objects.get_or_create(customer=customer, complete=False)
+        items = order.orderitem_set.all()
+        cart_items = order.get_cart_items
+    else:
+        items = []
+        order = {'get_cart_total': 0, 'get_cart_items': 0, 'shipping': False}
+    products = Product.objects.all()
+    context = {'items': items, 'order': order, 'cart_items': cart_items,'products': products}
+    return render(request, 'conveyor_app/UCFL.html', context)
+
+
+
+def cart(request):
+    cart_items = None
+    if request.user.is_authenticated:
+        customer = request.user.customer
+        order, created = Order.objects.get_or_create(customer=customer, complete=False)
+        items = order.orderitem_set.all()
+        cart_items = order.get_cart_items
+    else:
+        items = []
+        order = {'get_cart_total': 0, 'get_cart_items': 0, 'shipping': False}
+
+
+    context = {'items': items, 'order': order, 'cart_items': cart_items}
     return render(request, 'conveyor_app/shopping_cart.html', context)
 
 
@@ -104,15 +160,16 @@ def cart(request):
 #         return items
 
 def checkout(request):
-
+    cart_items = None
     if request.user.is_authenticated:
         customer = request.user.customer
         order, created = Order.objects.get_or_create(customer=customer, complete=False)
         items = order.orderitem_set.all()
+        cart_items = order.get_cart_items
     else:
         items = []
-        order = {'get_cart_total': 0, 'get_cart_items': 0}
-    context = {'items': items, 'order': order}
+        order = {'get_cart_total': 0, 'get_cart_items': 0, 'shipping': False}
+    context = {'items': items, 'order': order, 'cart_items': cart_items}
     return render(request, 'conveyor_app/checkout.html', context)
     # form = ShippingAddressForm
     # if request.user.is_authenticated:
@@ -166,3 +223,30 @@ def updateItem(request):
 
     return JsonResponse('Item was added', safe=False)
 
+def processOrder(request):
+    transaction_id = datetime.datetime.now().timestamp()
+    data = json.loads(request.body)
+
+    if request.user.is_authenticated:
+        customer = request.user.customer
+        order, created = Order.objects.get_or_create(customer=customer, complete=False)
+        total = float(data['form']['total'])
+        order.transaction_id = transaction_id
+
+        if total == float(order.get_cart_total):
+            order.complete = True
+        order.save()
+
+        if order.shipping == True:
+            ShippingAdress.objects.create(
+                customer=customer,
+                order=order,
+                address=data['shipping']['address'],
+                city=data['shipping']['city'],
+                state=data['shipping']['state'],
+                zipcode=data['shipping']['zipcode'],
+            )
+            order, created = Order.objects.get_or_create(customer=customer, complete=False)
+    else:
+        print('User is not logged in..')
+    return JsonResponse('Payment complete', safe=False)

@@ -2,33 +2,58 @@
 {% load crispy_forms_filters %}
 {% load static %}
 {% block page_content %}
-    <body>
 
     <div class="container">
-        <div class="row align-items-start">
-            <div class="col d-flex justify-content-start py-3">
-                <div class="card mb-4">
-                    <div class="card-body p-2" style="background-color: #dce9ef;width: 30rem">
-                        <div class="text-center">
-                            <h4 class="card-title" style="font-style: italic;color: #480410;">
-                                Вашите данни</h4>
-                        </div>
-                        <form method="post" enctype="multipart/form-data">
-                            {% csrf_token %}
-                            {{ form|crispy }}
-                            <div class="text-center">
-                                <button class="btn btn-primary mt-2" type="submit">Изпрати</button>
+        <div class="row py-3">
+            <div class="col-lg-6">
+                <div class="box-element" id="form-wrapper">
+                    <form id="form">
+                        <div id="user-info">
+                            <div class="form-field">
+                                <input required class="form-control" type="text" name="name" placeholder="name..">
                             </div>
-                        </form>
-
+                            <div class="form-field">
+                                <input required class="form-control" type="email" name="email" placeholder="Email..">
+                            </div>
+                        </div>
+                        <div id="shipping-info">
+                            <hr>
+                            <p>
+                                Shipping information:
+                            </p>
+                            <hr>
+                            <div class="form-field">
+                                <input required class="form-control" type="text" name="address" placeholder="Address..">
+                            </div>
+                            <div class="form-field">
+                                <input required class="form-control" type="text" name="city" placeholder="City..">
+                            </div>
+                            <div class="form-field">
+                                <input required class="form-control" type="text" name="state" placeholder="State..">
+                            </div>
+                            <div class="form-field">
+                                <input required class="form-control" type="text" name="zipcode" placeholder="Zipcode..">
+                            </div>
+                            <div class="form-field">
+                                <input required class="form-control" type="text" name="country" placeholder="Country..">
+                            </div>
+                            <hr>
+                            <input id="form-button" class="btn btn-success btn-block" type="submit" value="Continue">
+                        </div>
+                    </form>
+                    <div class="box-element hidden" id="payment-info">
+                        <small> Paypal options </small>
+                        <button id="make-payment">Make payment</button>
+                    </div>
+                    <div class="col-lg-6">
 
                     </div>
 
                 </div>
-                </a>
-
             </div>
-            <div class="col d-flex justify-content-center py-3">
+
+
+            <div class="col py-3">
                 <div class="card mb-4">
                     <div class="card-body p-2" style="background-color: #dce9ef">
                         <div class="text-center">
@@ -66,114 +91,88 @@
                         {% endfor %}
                     </div>
                 </div>
-                </a>
+
             </div>
         </div>
     </div>
-    {#    <div class="container">#}
-    {#        <div class="card">#}
-    {#            <div class="card-body">#}
-    {#                {% for item in items %}#}
-    {#                    <div class="row py-3" style="border-bottom: 2px solid darkgray">#}
-    {#                        <div class="col">#}
-    {#                        </div>#}
-    {#                        <div class="col">#}
-    {#                            Име#}
-    {#                        </div>#}
-    {#                        <div class="col">#}
-    {#                            Цена#}
-    {#                        </div>#}
-    {#                        <div class="col">#}
-    {#                            Количество#}
-    {#                        </div>#}
-    {#                    </div>#}
-    {#                    <div class="row py-3">#}
-    {#                        <div class="col">#}
-    {#                            <img src="{{ item.product.imageURL }}" style="height: 5rem">#}
-    {#                        </div>#}
-    {#                        <div class="col">#}
-    {#                            {{ item.product.name }}#}
-    {#                        </div>#}
-    {#                        <div class="col">#}
-    {#                            {{ item.product.price }}#}
-    {#                        </div>#}
-    {#                        <div class="col">#}
-    {#                            {{ item.quantity }}#}
-    {#                        </div>#}
-    {#                    </div>#}
-    {#                {% endfor %}#}
-    {##}
-    {##}
-    {#            </div>#}
-    {#        </div>#}
-    {#    </div>#}
-    {#    <div class="container py-3">#}
-    {#        <div class="card">#}
-    {#            <div class="card-body">#}
-    {#                <div class="row py-3" style="border-bottom: 2px solid darkgray">#}
-    {#                    <div class="col">#}
-    {#                    </div>#}
-    {#                    <div class="col">#}
-    {#                        Име#}
-    {#                    </div>#}
-    {#                    <div class="col">#}
-    {#                        Цена#}
-    {#                    </div>#}
-    {#                    <div class="col">#}
-    {#                        Количество#}
-    {#                    </div>#}
-    {#                </div>#}
-    {#            </div>#}
-    {#    <div class="container py-3">#}
-    {#        <div class="card">#}
-    {#            <div class="card-body">#}
-    {##}
-    {#            </div>#}
-    {#        </div>#}
-    {#    </div>#}
-    {#    <div class="container py-3">#}
-    {#        <div class="card">#}
-    {#            <div class="card-body">#}
-    {##}
-    {#            </div>#}
-    {#        </div>#}
-    {#    </div>#}
 
 
-    {#    <div class="container">#}
-    {#        <div class="row">#}
-    {#            <div class="col d-flex justify-content-center py-3">#}
-    {#                <div class="card mb-4">#}
-    {#                    <div class="card-body p-2" style="background-color: #dce9ef; width: 25rem">#}
-    {#                        <div class="text-center">#}
-    {#                            <h4 class="card-title" style="font-style: italic;color: #480410;">#}
-    {#                                Вашaта поръчка</h4>#}
-    {#                        </div>#}
-    {##}
-    {#                    </div>#}
-    {##}
-    {##}
-    {#                </div>#}
-    {##}
-    {#            </div>#}
-    {#        </div>#}
-    {#            <div class="col d-flex justify-content-center py-3">#}
-    {#                <div class="card mb-4">#}
-    {#                    <div class="card-body p-2" style="background-color: #dce9ef">#}
-    {#                        <div class="text-center">#}
-    {#                            <h4 class="card-title" style="font-style: italic;color: #480410;">#}
-    {#                                Вашата поръчка</h4>#}
-    {##}
-    {#                        </div>#}
-    {#                        <img src="{% static 'ucf_2.jpg' %}" style="height: 25rem">#}
-    {##}
-    {#                    </div>#}
-    {##}
-    {#                </div>#}
-    {#            </div>#}
-    {#    </div>#}
-    {#    </div>#}
-    </body>
+    <script type="text/javascript">
 
+        var shipping = '{{ order.shipping }}'
+        var total = '{{ order.get_cart_total }}'
+
+        if (shipping === 'False') {
+            document.getElementById('shipping-info').innerHTML = ''
+        }
+
+        if (user != 'AnonymousUser') {
+            document.getElementById('user-info').innerHTML = ''
+        }
+
+        if (shipping == 'False' && user != 'AnonymousUser') {
+            document.getElementById('form-wrapper').classList.add('hidden');
+            document.getElementById('payment-info').classList.remove('hidden');
+        }
+
+        var total = '{{ order.get_cart_total|floatformat:2 }}'
+
+        var form = document.getElementById('form')
+        form.addEventListener('submit', function (e) {
+            e.preventDefault()
+            console.log('Form submitted')
+            document.getElementById('form-button').classList.add('hidden');
+            document.getElementById('payment-info').classList.remove('hidden');
+        })
+
+        document.getElementById('make-payment').addEventListener('click', function (e) {
+            submitFormData()
+        })
+
+        function submitFormData() {
+            console.log('Payment button')
+
+            var userFormData = {
+                'name': null,
+                'email': null,
+                'total': total,
+            }
+
+            var shippingInfo = {
+                'address': null,
+                'city': null,
+                'state': null,
+                'zipcode': null,
+            }
+
+            if (shipping != 'False') {
+                shippingInfo.address = form.address.value
+                shippingInfo.city = form.city.value
+                shippingInfo.state = form.state.value
+                shippingInfo.zipcode = form.zipcode.value
+            }
+
+            if (user == 'AnonymousUser'){
+                userFormData.name = form.name.value
+                userFormData.city = form.city.value
+            }
+
+            var url = '/process_order/'
+            fetch(url,{
+                method:'POST',
+                headers:{
+                    'Content-Type':'application/json',
+                    'X-CSRFToken':csrftoken,
+                },
+                body:JSON.stringify({'form':userFormData, 'shipping':shippingInfo})
+            })
+            .then((response) => response.json())
+            .then((data) => {
+                console.log('Success:', data);
+                alert('Transaction completed');
+                window.location.href = '{% url "home" %}'
+            })
+        }
+    </script>
 
 {% endblock %}

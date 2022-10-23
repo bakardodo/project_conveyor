@@ -1,6 +1,10 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block page_content %}
+    <head>
+        <script type="text/javascript" src="{% static 'js/cart.js' %}"></script>
+    </head>
+
     <section>
         <div class="container h-100">
             <div class="row d-flex justify-content-center align-items-center h-100">
@@ -17,20 +21,31 @@
                                     </div>
                                     <div class="col-md-2 d-flex justify-content-center">
                                         <div>
-                                            <p class="small text-muted mb-4 pb-2">Име</p>
+                                            <p class="small text-muted mb-4 pb-2 ">Име</p>
                                             <p class="lead fw-normal mb-0">{{ item.product.name }}</p>
                                         </div>
                                     </div>
                                     <div class="col-md-2 d-flex justify-content-center">
                                         <div>
-                                            <p class="small text-muted mb-4 pb-2">Количество</p>
-                                            <p class="lead fw-normal mb-0">{{ item.quantity }}</p>
+                                            <p class="small text-muted mb-4 pb-2">Цена</p>
+                                            <p class="lead fw-normal mb-0">{{ item.product.price|floatformat:2 }}лв.</p>
                                         </div>
                                     </div>
                                     <div class="col-md-2 d-flex justify-content-center">
                                         <div>
-                                            <p class="small text-muted mb-4 pb-2">Цена</p>
-                                            <p class="lead fw-normal mb-0">{{ item.product.price }}лв.</p>
+                                            <p class="small text-muted mb-4 pb-2 ">Количество</p>
+                                            <button data-product="{{ item.product.id }}" data-action="remove"
+                                                    type="button"
+                                                    class="btn btn-outline-secondary btn-number update-cart"
+                                                    style="height: 35px" data-type="minus" data-field="quant[1]">
+                                                <span class="fa fa-minus"></span>
+                                            </button>
+                                            <b>{{ item.quantity }}</b>
+                                            <button data-product="{{ item.product.id }}" data-action="add" type="button"
+                                                    class="btn btn-outline-secondary btn-number update-cart"
+                                                    style="height: 35px" data-type="plus" data-field="quant[1]">
+                                                <span class="fa fa-plus"></span>
+                                            </button>
                                         </div>
                                     </div>
                                     <div class="col-md-2 d-flex justify-content-center">
@@ -61,13 +76,15 @@
                     <div class="d-flex justify-content-end py-3">
                         <button type="button" class="btn btn-light btn-lg me-2">Продължи да пазаруваш</button>
                         <div class="d-flex justify-content-center">
-                            <a class="btn btn-primary btn-lg btn-success" href="{% url 'checkout' %}" role="button">Завърши поръчката</a>
+                            <a class="btn btn-primary btn-lg btn-success" href="{% url 'checkout' %}" role="button">Завърши
+                                поръчката</a>
                         </div>
                     </div>
 
                 </div>
             </div>
         </div>
+        <script type="text/javascript" src="{% static 'js/cart.js' %}"></script>
     </section>
 
 {% endblock %}
