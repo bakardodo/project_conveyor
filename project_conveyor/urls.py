@@ -24,4 +24,4 @@ urlpatterns = [
     path('', include('project_conveyor.conveyor_app.urls')),
     path('accounts/', include('project_conveyor.account_user.urls')),
 ]
-urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+# urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

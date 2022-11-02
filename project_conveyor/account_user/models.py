@@ -80,7 +80,9 @@ class Profile(models.Model):
         verbose_name='Ел.Поща'
     )
 
-    phone_number = models.IntegerField()
+    phone_number = models.IntegerField(
+        verbose_name='Телефонен номер'
+    )
 
     # user = models.OneToOneField(
     #     ConveyorUser,
@@ -88,7 +90,9 @@ class Profile(models.Model):
     #     primary_key=True,
     # )
 
-    addres = models.TextField()
+    addres = models.TextField(
+        verbose_name='Адрес'
+    )
 
     country = models.CharField(
         max_length=MAX_LENGTH_COUNTRY_NAME,

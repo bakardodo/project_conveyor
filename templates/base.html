@@ -36,12 +36,12 @@
 
         var csrftoken = getToken('csrftoken');
 
-        function getCookie(name){
+        function getCookie(name) {
             var cookieArr = document.cookie.split(';');
 
-            for(var i = 0; i < cookieArr.length; i++){
+            for (var i = 0; i < cookieArr.length; i++) {
                 var cookiePair = cookieArr[i].split('=');
-                if(name == cookiePair[0].trim()){
+                if (name == cookiePair[0].trim()) {
                     return decodeURIComponent(cookiePair[1])
                 }
             }
@@ -50,7 +50,7 @@
         }
 
         var cart = JSON.parse(getCookie('cart'))
-        if(cart == undefined){
+        if (cart == undefined) {
             cart = {}
             console.log('Cart was created!')
             document.cookie = 'cart=' + JSON.stringify(cart) + ';domain=;path=/'
@@ -188,12 +188,15 @@
                         </a>
                     </li>
                 {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" style="font-size: 20px">Вход</a>
+                    </li>
                     <li class="nav-item" style="font-size: 25px">
                         <a href="{% url 'shopping cart' %}" class="cart position-relative d-inline-flex"
                            aria-label="View your shopping cart" style="font-size: 20px;color: #545151">
                             <i class="fas fa fa-shopping-cart fa-lg"></i>
                             <span class="cart-basket d-flex align-items-center justify-content-center">
-                            <b>0</b>
+                            <b>{{ cart_items }}</b>
                         </span>
                         </a>
                     </li>

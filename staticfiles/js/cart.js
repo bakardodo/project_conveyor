@@ -16,7 +16,7 @@ for (var i = 0; i < updateBtns.length; i++) {
 
     })
 }
-
+// for unauthenticated
 function addCookieItem(productId, action) {
     console.log('Not logged in..')
 
@@ -39,7 +39,7 @@ function addCookieItem(productId, action) {
 
     console.log('Cart:', cart)
     document.cookie = 'cart=' + JSON.stringify(cart) + ";domain=;path=/"
-    
+    location.reload()
 }
 
 

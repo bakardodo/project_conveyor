@@ -2,21 +2,26 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7803d486-fada-4237-9654-9f0ef9969215" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/staticfiles/b.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/bearing.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/images/UCF_67apmq0.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/plus.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/subtract_2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/project_conveyor/account_user/forms.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/project_conveyor/conveyor_app/utils.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/conveyor_app/register.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project_conveyor/conveyor_app/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/project_conveyor/conveyor_app/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project_conveyor/account_user/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/project_conveyor/account_user/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project_conveyor/account_user/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/project_conveyor/account_user/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project_conveyor/account_user/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/project_conveyor/account_user/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/project_conveyor/conveyor_app/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/project_conveyor/conveyor_app/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/project_conveyor/conveyor_app/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/project_conveyor/conveyor_app/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project_conveyor/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/project_conveyor/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project_conveyor/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/project_conveyor/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/staticfiles/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/staticfiles/css/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/staticfiles/js/cart.js" beforeDir="false" afterPath="$PROJECT_DIR$/staticfiles/js/cart.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/conveyor_app/UCF.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/conveyor_app/UCF.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/conveyor_app/UCFL.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/conveyor_app/UCFL.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/conveyor_app/UCP.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/conveyor_app/UCP.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/conveyor_app/bearing_bodies.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/conveyor_app/bearing_bodies.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/conveyor_app/checkout.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/conveyor_app/checkout.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/conveyor_app/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/conveyor_app/dashboard.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/conveyor_app/shopping_cart.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/conveyor_app/shopping_cart.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -28,9 +33,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="CSS File" />
+        <option value="JavaScript File" />
         <option value="Python Script" />
         <option value="HTML File" />
-        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -137,7 +142,8 @@
       <workItem from="1663248098617" duration="12199000" />
       <workItem from="1664988678782" duration="12171000" />
       <workItem from="1665674962024" duration="17779000" />
-      <workItem from="1665852345978" duration="52454000" />
+      <workItem from="1665852345978" duration="91159000" />
+      <workItem from="1667396231279" duration="4924000" />
     </task>
     <servers />
   </component>
@@ -157,16 +163,5 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/project_conveyor/conveyor_app/views.py</url>
-          <line>128</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

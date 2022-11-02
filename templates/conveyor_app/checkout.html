@@ -38,7 +38,8 @@
                                 <input required class="form-control" type="text" name="country" placeholder="Country..">
                             </div>
                             <hr>
-                            <input id="form-button" class="btn btn-success btn-block" type="submit" value="Continue">
+                            <input id="form-button" class="btn btn-success btn-block" style="" type="submit"
+                                   value="Continue">
                         </div>
                     </form>
                     <div class="box-element hidden" id="payment-info">
@@ -152,26 +153,33 @@
                 shippingInfo.zipcode = form.zipcode.value
             }
 
-            if (user == 'AnonymousUser'){
+            if (user == 'AnonymousUser') {
                 userFormData.name = form.name.value
                 userFormData.city = form.city.value
+                userFormData.email = form.email.value
             }
-
             var url = '/process_order/'
-            fetch(url,{
-                method:'POST',
-                headers:{
-                    'Content-Type':'application/json',
-                    'X-CSRFToken':csrftoken,
+            console.log('AAAAA')
+
+            fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': csrftoken,
                 },
-                body:JSON.stringify({'form':userFormData, 'shipping':shippingInfo})
+                body: JSON.stringify({'form': userFormData, 'shipping': shippingInfo})
             })
-            .then((response) => response.json())
-            .then((data) => {
-                console.log('Success:', data);
-                alert('Transaction completed');
-                window.location.href = '{% url "home" %}'
-            })
+                .then((response) => response.json())
+                .then((data) => {
+                    console.log('Success:', data);
+                    alert('Успешно изпратихте своята поръчка!');
+
+                    cart = {}
+                    document.cookie = 'cart=' + JSON.stringify(cart) + ';domain=;path=/'
+                    window.location.href = '{% url "home" %}'
+
+                })
+
         }
     </script>
 
