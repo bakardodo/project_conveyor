@@ -7,25 +7,28 @@
         <div class="container mb-5 py-3">
             <div class="row mb-5">
                 <h5 class="font-weight-bold" style="color: #dce9ef;font-style: italic">
-                    <a href="{% url 'home' %}" style="color: white"> Начало &#10097 </a> Лагерни тела
+                    <a href="{% url 'home' %}" style="color: white"> Начало &#10097 </a> Регистрация
                 </h5>
             </div>
         </div>
     </div>
 
-    <div class="container">
-    <div class="row">
-        <div class="col">
-            <div class="card-body">
-                <div class="card">
-                    <form method="post">
-                        {% csrf_token %}
-                        {{ form|crispy }}
-                    </form>
+    <div class="container py-3">
+        <div class="row">
+            <div class="col d-flex justify-content-center">
+                <div class="card" style="width: 30rem;background-color: #dce9ef">
+                    <div class="card-body">
+                        <form method="POST">
+                            {% csrf_token %}
+                            {{ form|crispy }}
+                            <button type="submit" class="btn btn-secondary btn-lg btn-block" style="color: white">
+                                Регистрация
+                            </button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
     </div>
 
 {% endblock %}

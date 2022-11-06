@@ -160,13 +160,13 @@
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         {#                        <a class="dropdown-item" href="#">Конвейерни ленти</a>#}
                         <a class="dropdown-item" href="{% url 'bearing body' %}">Лагерни тела</a>
-                        <a class="dropdown-item" href="#">Ремъчни шайби</a>
-                        <a class="dropdown-item" href="#">Верижни колела с главина</a>
-                        <a class="dropdown-item" href="#">Цилиндрични модулни колела</a>
-                        <a class="dropdown-item" href="#">Електродвигатели</a>
-                        <a class="dropdown-item" href="#">Модулни рейки</a>
-                        <a class="dropdown-item" href="#">Редуктори</a>
-                        <a class="dropdown-item" href="#">Ролкови вериги</a>
+                        <a class="dropdown-item" href="{% url 'belt washer' %}">Ремъчни шайби</a>
+                        <a class="dropdown-item" href="{% url 'chain wheel' %}">Верижни колела с главина</a>
+                        <a class="dropdown-item" href="{% url 'cylindric wheel' %}">Цилиндрични модулни колела</a>
+                        <a class="dropdown-item" href="{% url 'electric motor' %}">Електродвигатели</a>
+                        <a class="dropdown-item" href="{% url 'modul rail' %}">Модулни рейки</a>
+                        <a class="dropdown-item" href="{% url 'reducer' %}">Редуктори</a>
+                        <a class="dropdown-item" href="{% url 'roller chain' %}">Ролкови вериги</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item font-weight-bold" href="{% url 'conveyor belt' %}">Конвейерни ленти</a>
                     </div>
@@ -175,9 +175,9 @@
                     <a class="nav-link" href="#" style="font-size: 20px">Контакти</a>
                 </li>
                 {% if user.is_authenticated %}
-                    <li class="nav-item">
-                        <a class="nav-link" href="#" style="font-size: 20px">Профил</a>
-                    </li>
+{#                    <li class="nav-item">#}
+{#                        <a class="nav-link" href="#" style="font-size: 20px">Профил</a>#}
+{#                    </li>#}
                     <li class="nav-item" style="font-size: 25px">
                         <a href="{% url 'shopping cart' %}" class="cart position-relative d-inline-flex"
                            aria-label="View your shopping cart" style="font-size: 20px;color: #545151">
@@ -188,9 +188,9 @@
                         </a>
                     </li>
                 {% else %}
-                    <li class="nav-item">
-                        <a class="nav-link" href="#" style="font-size: 20px">Вход</a>
-                    </li>
+{#                    <li class="nav-item">#}
+{#                        <a class="nav-link" href="#" style="font-size: 20px">Вход</a>#}
+{#                    </li>#}
                     <li class="nav-item" style="font-size: 25px">
                         <a href="{% url 'shopping cart' %}" class="cart position-relative d-inline-flex"
                            aria-label="View your shopping cart" style="font-size: 20px;color: #545151">

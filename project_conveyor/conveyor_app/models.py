@@ -1,4 +1,6 @@
 from django.contrib.auth import get_user_model
+from django.contrib.auth.base_user import BaseUserManager
+from django.contrib.auth.hashers import make_password
 from django.contrib.auth.models import User
 from django.db import models
 from jsonfield import JSONField
@@ -100,6 +102,7 @@ class AskModel(models.Model):
     )
 
 
+
 class Customer(models.Model):
     user = models.OneToOneField(
         User,
@@ -120,6 +123,7 @@ class Customer(models.Model):
 
     def __str__(self):
         return self.name
+
 
 class Product(models.Model):
     name = models.CharField(
@@ -153,6 +157,37 @@ class Product(models.Model):
     )
 
     B = models.FloatField(
+        null=True,
+        blank=True,
+    )
+
+    O_D = models.FloatField(
+        null=True,
+        blank=True,
+    )
+
+    W = models.FloatField(
+        null=True,
+        blank=True,
+    )
+
+
+    dg = models.FloatField(
+        null=True,
+        blank=True,
+    )
+
+    de = models.FloatField(
+        null=True,
+        blank=True,
+    )
+
+    sj = models.FloatField(
+        null=True,
+        blank=True,
+    )
+
+    sm = models.FloatField(
         null=True,
         blank=True,
     )

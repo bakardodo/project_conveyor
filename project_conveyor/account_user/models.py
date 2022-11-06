@@ -2,7 +2,7 @@ from django.contrib.auth import get_user_model
 from django.contrib.auth.base_user import AbstractBaseUser
 from django.contrib.auth.models import PermissionsMixin
 from django.db import models
-
+from django.contrib.auth.models import User
 # Create your models here.
 # from project_conveyor.account_user.manager import ConveyorUserManager
 
@@ -84,11 +84,11 @@ class Profile(models.Model):
         verbose_name='Телефонен номер'
     )
 
-    # user = models.OneToOneField(
-    #     ConveyorUser,
-    #     on_delete=models.CASCADE,
-    #     primary_key=True,
-    # )
+    username = models.OneToOneField(
+        User,
+        on_delete=models.CASCADE,
+        primary_key=True,
+    )
 
     addres = models.TextField(
         verbose_name='Адрес'

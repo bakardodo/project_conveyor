@@ -1,0 +1,1 @@
+web gunicorn project_conveyor.wsgi:application --log-file -

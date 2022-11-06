@@ -1,18 +1,10 @@
 import datetime
 import json
-from django.core.mail import EmailMessage
-from django.conf import settings
-from django.template.loader import render_to_string
-from django.contrib import messages
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 from django.http import JsonResponse
-# Create your views here.
 from django.urls import reverse_lazy
-from django.views.decorators.csrf import csrf_exempt
-from django.views.generic import TemplateView, CreateView, ListView
-
-from project_conveyor.account_user.forms import CreateProfileForm
-from project_conveyor.conveyor_app.forms import CreateAskForm, ShippingAddressForm
+from django.views.generic import CreateView
+from project_conveyor.conveyor_app.forms import CreateAskForm
 from project_conveyor.conveyor_app.utils import cookieCart, cartData
 from django.core.mail import send_mail
 
@@ -95,20 +87,6 @@ def bearing_bodies_view(request):
     return render(request, 'conveyor_app/bearing_bodies.html', context)
 
 
-# class CreateBearingBodyView(TemplateView):
-#     template_name = 'conveyor_app/bearing_bodies.html'
-#
-#     def get_context_data(self, **kwargs):
-#         context = super().get_context_data(**kwargs)
-#         customer = self.request.user.customer
-#         order, created = Order.objects.get_or_create(customer=customer, complete=False)
-#         items = order.orderitem_set.all()
-#         cart_items = order.get_cart_items
-#         context['cart_items'] = cart_items
-#         context['shipping'] = False
-#         return get_products(context)
-
-
 def ucf_bearing_view(request):
     cart_items = None
     if request.user.is_authenticated:
@@ -133,20 +111,6 @@ def ucf_bearing_view(request):
     return render(request, 'conveyor_app/UCF.html', context)
 
 
-# class CreateUCFBearingView(TemplateView):
-#     template_name = 'conveyor_app/UCF.html'
-#
-#     def get_context_data(self, **kwargs):
-#         context = super().get_context_data(**kwargs)
-#         customer = self.request.user.customer
-#         order, created = Order.objects.get_or_create(customer=customer, complete=False)
-#         items = order.orderitem_set.all()
-#         cart_items = order.get_cart_items
-#         context['cart_items'] = cart_items
-#         context['shipping'] = False
-#         return get_products(context)
-
-
 def ucfl_bearing_body(request):
     data = cartData(request)
     cart_items = data['cart_items']
@@ -166,23 +130,6 @@ def cart(request):
     return render(request, 'conveyor_app/shopping_cart.html', context)
 
 
-# class CheckoutPage(CreateView):
-#     model = ShippingAdress
-#     template_name = 'conveyor_app/checkout.html'
-#     form_class = ShippingAddressForm
-#     success_url = reverse_lazy('home')
-#
-#     def get_form_kwargs(self):
-#         kwargs = super().get_form_kwargs()
-#         kwargs['user'] = self.request.user
-#         return kwargs
-#
-#     def get_queryset(self):
-#         customer = self.request.user
-#         order, created = Order.objects.get_or_create(customer=customer, complete=False)
-#         items = order.orderitem_set.all()
-#         return items
-
 def checkout(request):
     if request.user.is_authenticated:
         customer = request.user.customer
@@ -198,32 +145,6 @@ def checkout(request):
     context = {'items': items, 'order': order, 'cart_items': cart_items}
     return render(request, 'conveyor_app/checkout.html', context)
 
-
-# form = ShippingAddressForm
-# if request.user.is_authenticated:
-#     customer = request.user.pk
-#     order, created = Order.objects.get_or_create(customer=customer, complete=False)
-#     items = order.orderitem_set.all()
-#     if request.method == 'POST':
-#         form = ShippingAddressForm(request.POST)
-#         if form.is_valid():
-#             form.save()
-#             return redirect('conveyor questions')
-#     else:
-#         form = ShippingAddressForm(request.user)
-# else:
-#     items = []
-#     order = {'get_cart_total': 0, 'get_cart_items': 0}
-#     if request.method == 'POST':
-#         form = ShippingAddressForm(request.POST)
-#         if form.is_valid():
-#             form.save()
-#             return redirect('conveyor questions')
-#     else:
-#         form = ShippingAddressForm(request.user)
-#
-# context = {'items': items, 'order': order, 'form': form}
-# return render(request, 'conveyor_app/checkout.html', context)
 
 
 def updateItem(request):
@@ -337,13 +258,59 @@ def processOrder(request):
               ['bakardjievstoqn@gmail.com'], fail_silently=False)
     return JsonResponse('Payment complete', safe=False)
 
+def belt_washer(request):
+    data = cartData(request)
+    cart_items = data['cart_items']
 
-class UserRegisterView(CreateView):
-    template_name = 'conveyor_app/register.html'
-    form_class = CreateProfileForm
-    success_url = reverse_lazy('home')
+    products = Product.objects.all()
+    context = {'cart_items': cart_items, 'products': products}
+    return render(request, 'conveyor_app/belt_washers.html', context)
 
-    def dispatch(self, request, *args, **kwargs):
-        if request.user.is_authenticated:
-            return redirect('home')
-        return super().dispatch(request, *args, **kwargs)
+def chain_wheel(request):
+    data = cartData(request)
+    cart_items = data['cart_items']
+
+    products = Product.objects.all()
+    context = {'cart_items': cart_items, 'products': products}
+    return render(request, 'conveyor_app/chain_wheels_with_hub.html', context)
+
+
+def cylindric_wheel(request):
+    data = cartData(request)
+    cart_items = data['cart_items']
+
+    products = Product.objects.all()
+    context = {'cart_items': cart_items, 'products': products}
+    return render(request, 'conveyor_app/cyllindrical_modular_wheels.html', context)
+
+def electric_motor(request):
+    data = cartData(request)
+    cart_items = data['cart_items']
+
+    products = Product.objects.all()
+    context = {'cart_items': cart_items, 'products': products}
+    return render(request, 'conveyor_app/electric_motors.html', context)
+
+def modul_rail(request):
+    data = cartData(request)
+    cart_items = data['cart_items']
+
+    products = Product.objects.all()
+    context = {'cart_items': cart_items, 'products': products}
+    return render(request, 'conveyor_app/modular_rails.html', context)
+
+def reducer(request):
+    data = cartData(request)
+    cart_items = data['cart_items']
+
+    products = Product.objects.all()
+    context = {'cart_items': cart_items, 'products': products}
+    return render(request, 'conveyor_app/reducers.html', context)
+
+def roller_chain(request):
+    data = cartData(request)
+    cart_items = data['cart_items']
+
+    products = Product.objects.all()
+    context = {'cart_items': cart_items, 'products': products}
+    return render(request, 'conveyor_app/roller_chains.html', context)

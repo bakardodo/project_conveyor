@@ -1,0 +1,8 @@
+
+<form method="POST">
+    {% csrf_token %}
+    <input type="text" name="username" placeholder="Потребителско име" class="form-control">
+    <input type="text" name="password" placeholder="Парола" class="form-control">
+    <input class="btn login_btn" type="submit" value="Login">
+
+</form>

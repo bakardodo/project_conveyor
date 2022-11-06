@@ -50,6 +50,7 @@
     <h1 class="text-center">Артикули</h1>
     <div class="container">
         {% for product in products %}
+            {% if 'UCF' in product.name %}
             <div class="row d-flex justify-content-center">
                 <div class="col">
                     <div class="card" style="margin: 10px">
@@ -78,9 +79,6 @@
                                 <div class="col">
 
                                 </div>
-{#                                <div class="col">#}
-{##}
-{#                                </div>#}
 
                             </div>
                             <div class="box-element product">
@@ -106,39 +104,20 @@
                                             {{ product.price|floatformat:2 }}лв.
                                         </h5>
                                     </div>
-{#                                    <div class="col">#}
-{#                                        <button data-product="{{ item.product.id }}" data-action="remove"#}
-{#                                                type="button"#}
-{#                                                class="btn btn-outline-secondary btn-number update-cart"#}
-{#                                                style="height: 35px" data-type="minus" data-field="quant[1]">#}
-{#                                            <span class="fa fa-minus"></span>#}
-{#                                        </button>#}
-{#                                        <b></b>#}
-{#                                        <button data-product="{{ item.product.id }}" data-action="add" type="button"#}
-{#                                                class="btn btn-outline-secondary btn-number update-cart"#}
-{#                                                style="height: 35px" data-type="plus" data-field="quant[1]">#}
-{#                                            <span class="fa fa-plus"></span>#}
-{#                                        </button>#}
-{#                                    </div>#}
+
                                     <div class="col">
                                         <button data-product="{{ product.id }}" data-action="add"
                                                 class="btn btn-info add-btn update-cart">Добави в количка
                                         </button>
                                     </div>
                                 </div>
-                                {#                                <button data-product="{{ product.id }}" data-action="add"#}
-                                {#                                        class="btn btn-outline-secondary add-btn update-cart">Добави в количка#}
-                                {#                                </button>#}
-                                {#                                <a class="btn btn-outline-success" href="#">View</a>#}
-                                {#                                <h4>#}
-                                {#                                    {{ product.price|floatformat:2 }}$#}
-                                {#                                </h4>#}
 
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+            {% endif %}
         {% endfor %}
     </div>
     </div>

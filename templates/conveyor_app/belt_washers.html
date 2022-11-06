@@ -1,4 +1,122 @@
 {% extends 'base.html' %}
+{% load crispy_forms_filters %}
+{% load static %}
 {% block page_content %}
-    
+
+    <head>
+
+    </head>
+    <body>
+    <div style="background-color: #480410;height: 50px">
+        <div class="container mb-5 py-3">
+            <div class="row mb-5">
+                <h5 class="font-weight-bold" style="color: #dce9ef;font-style: italic">
+                    <a href="{% url 'home' %}" style="color: white"> Начало &#10097 </a> Лагерни тела
+                </h5>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row align-items-start">
+            <div class="col d-flex justify-content-center py-3">
+                <div class="card mb-4">
+                    <div class="card-body p-2" style="background-color: #dce9ef">
+                        <div class="text-center">
+                            <h4 class="card-title" style="font-style: italic;color: #480410;">
+                                Схема на ремъчна шайба</h4>
+                        </div>
+                        <img src="{% static 'new_belt_pulley.png' %}" style="height: 25rem;width: 25rem">
+
+                    </div>
+
+                </div>
+                </a>
+
+            </div>
+            <div class="col d-flex justify-content-center py-3">
+                <div class="card mb-4">
+                    <div class="card-body p-2" style="background-color: #dce9ef">
+                        <div class="text-center">
+                            <h4 class="card-title" style="font-style: italic;color: #480410;">
+                                Ремъчна шайба</h4>
+                        </div>
+                        <img src="{% static 'belt_pulley.jpg' %}" style="height: 25rem">
+                    </div>
+                </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <h1 class="text-center">Артикули</h1>
+    <div class="container">
+        {% for product in products %}
+            {% if 'Шайба' in product.name %}
+            <div class="row d-flex justify-content-center">
+                <div class="col">
+                    <div class="card" style="margin: 10px">
+                        <div class="card-body" style="background-color: whitesmoke">
+                            <h5 class="d-flex justify-content-center"><strong></strong></h5>
+                            {#                            <img class="thumbnail" src="{{ product.imageURL }}" style="height: 10rem">#}
+                            <div class="row align-items-end">
+                                <div class="col d-flex justify-content-center">
+                                    <b>Ремъчна шайба</b>
+                                </div>
+                                <div class="col">
+                                    <b>Диаметър на отвора Ø mm</b>
+                                </div>
+                                <div class="col">
+                                    <b>O.D.</b>
+                                </div>
+                                <div class="col">
+                                    <b>W</b>
+                                </div>
+                                <div class="col">
+                                    <b>Цена</b>
+                                </div>
+                                <div class="col">
+
+                                </div>
+
+                            </div>
+                            <div class="box-element product">
+                                <hr>
+                                <div class="row align-items-center">
+                                    <div class="col d-flex justify-content-center">
+                                        {{ product.name }}
+                                    </div>
+                                    <div class="col">
+                                        {{ product.diameter }}
+                                    </div>
+                                    <div class="col">
+                                        {{ product.O_D}}
+                                    </div>
+                                    <div class="col">
+                                        {{ product.W }}
+                                    </div>
+
+                                    <div class="col">
+                                        <h5>
+                                            {{ product.price|floatformat:2 }}лв.
+                                        </h5>
+                                    </div>
+
+                                    <div class="col">
+                                        <button data-product="{{ product.id }}" data-action="add"
+                                                class="btn btn-info add-btn update-cart">Добави в количка
+                                        </button>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+    </div>
+
+    <script type="text/javascript" src="{% static 'js/cart.js' %}"></script>
+    </body>
 {% endblock %}
