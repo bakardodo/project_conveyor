@@ -5,7 +5,7 @@ from project_conveyor.account_user.models import Profile
 from django import forms
 from django.contrib.auth.models import User
 
-class CreateProfileForm(UserCreationForm):
+class CreateUserForm(UserCreationForm):
     # first_name = forms.CharField(
     #     max_length=Profile.MAX_LENGTH_FIRST_NAME,
     # )

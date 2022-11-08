@@ -11,8 +11,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 import os.path
 from pathlib import Path
-import django_heroku
-import dj_database_url
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -126,13 +125,12 @@ CSRF_COOKIE_SECURE = False
 
 STATIC_URL = 'static/'
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = '/home/username/projects/site/assets/'
 
 STATICFILES_DIRS = (
     BASE_DIR / 'staticfiles',
 )
 
-django_heroku.settings(locals())
 
 MEDIA_URL = '/images/'
 

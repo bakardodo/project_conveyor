@@ -1,13 +1,17 @@
 import datetime
 import json
-from django.shortcuts import render
+
+from django.contrib.auth import authenticate, login, logout
+from django.shortcuts import render, redirect
 from django.http import JsonResponse
 from django.urls import reverse_lazy
 from django.views.generic import CreateView
+
+from project_conveyor.account_user.forms import CreateUserForm
 from project_conveyor.conveyor_app.forms import CreateAskForm
 from project_conveyor.conveyor_app.utils import cookieCart, cartData
 from django.core.mail import send_mail
-
+from django.contrib import messages
 
 def get_products(context):  # get all our products of database
     products = Product.objects.all()
@@ -21,8 +25,10 @@ from project_conveyor.conveyor_app.models import AskModel, Product, Order, Shipp
 def create_home_view(request):
     cart_items = None
     if request.user.is_authenticated:
-        customer = request.user.customer
-        order, created = Order.objects.get_or_create(customer=customer, complete=False)
+        # create_customer = Customer.objects.get_or_create(user=request.user, name=request.user.username,
+        #                                           email=request.user.email)
+        # # customer = request.user.customer
+        order, created = Order.objects.get_or_create(customer=request.user.customer, complete=False)
         items = order.orderitem_set.all()
         cart_items = order.get_cart_items
     else:
@@ -314,3 +320,40 @@ def roller_chain(request):
     products = Product.objects.all()
     context = {'cart_items': cart_items, 'products': products}
     return render(request, 'conveyor_app/roller_chains.html', context)
+
+def register_page(request):
+    form = CreateUserForm()
+    if request.method == 'POST':
+        form = CreateUserForm(request.POST)
+        if form.is_valid():
+            form.save()
+            user = form.cleaned_data.get('username')
+
+            messages.success(request, 'Account was created for' + user)
+
+            return redirect('login')
+
+    context = {'form': form}
+    return render(request, 'conveyor_app/register.html', context)
+
+def login_page(request):
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+
+        user = authenticate(request, username=username, password=password)
+
+        if user is not None:
+            login(request, user)
+            return redirect('home')
+        else:
+            messages.info(request, 'Username or password is incorrect')
+
+    context = {}
+    return render(request, 'conveyor_app/login.html')
+
+def logout_user(request):
+    logout(request)
+    return redirect('home')
+
+
