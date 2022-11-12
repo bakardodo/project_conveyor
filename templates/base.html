@@ -175,9 +175,9 @@
                     <a class="nav-link" href="#" style="font-size: 20px">Контакти</a>
                 </li>
                 {% if user.is_authenticated %}
-{#                    <li class="nav-item">#}
-{#                        <a class="nav-link" href="#" style="font-size: 20px">Профил</a>#}
-{#                    </li>#}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'profile' %}" style="font-size: 20px">Профил</a>
+                    </li>
                     <li class="nav-item" style="font-size: 25px">
                         <a href="{% url 'shopping cart' %}" class="cart position-relative d-inline-flex"
                            aria-label="View your shopping cart" style="font-size: 20px;color: #545151">
@@ -188,9 +188,12 @@
                         </a>
                     </li>
                 {% else %}
-{#                    <li class="nav-item">#}
-{#                        <a class="nav-link" href="#" style="font-size: 20px">Вход</a>#}
-{#                    </li>#}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'login' %}" style="font-size: 20px">Вход</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'register' %}" style="font-size: 20px">Регистрация</a>
+                    </li>
                     <li class="nav-item" style="font-size: 25px">
                         <a href="{% url 'shopping cart' %}" class="cart position-relative d-inline-flex"
                            aria-label="View your shopping cart" style="font-size: 20px;color: #545151">

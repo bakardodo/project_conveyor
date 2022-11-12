@@ -10,7 +10,11 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 import os.path
+import os
+import django_heroku
+import dj_database_url
 from pathlib import Path
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -123,15 +127,11 @@ CSRF_COOKIE_SECURE = False
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
-STATIC_URL = 'static/'
-
 STATIC_ROOT = '/home/username/projects/site/assets/'
-
+STATIC_URL = '/static/'
 STATICFILES_DIRS = (
-    BASE_DIR / 'staticfiles',
+    os.path.join(BASE_DIR, 'staticfiles'),
 )
-
-
 MEDIA_URL = '/images/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'staticfiles/images')
@@ -147,7 +147,6 @@ EMAIL_HOST_PASSWORD = 'qjsuoftfssbwungz'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 # AUTH_USER_MODEL = 'account_user.ConveyorUser'
-
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'

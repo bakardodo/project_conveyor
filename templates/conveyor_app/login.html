@@ -1,8 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block page_content %}
 
-<form method="POST">
-    {% csrf_token %}
-    <input type="text" name="username" placeholder="Потребителско име" class="form-control">
-    <input type="text" name="password" placeholder="Парола" class="form-control">
-    <input class="btn login_btn" type="submit" value="Login">
+    <div class="container">
+        <div class="row py-3">
+            <div class="col d-flex justify-content-center">
+                <div class="card" style="width: 25rem;background-color: #dce9ef">
+                    <div class="card-body">
+                        <form method="post">
+                            {% csrf_token %}
+                            <div class="text-center">
+                                <h3>
+                                    Sign in
+                                </h3>
+                            </div>
+                            <div class="py-3">
+                                <input type="text" name="username" placeholder="Username"
+                                   class="form-control">
+                            </div>
+                            <div class="py-3">
+                                <input type="text" name="password" placeholder="Password" class="form-control">
+                            </div>
+                            <div class="text-center">
+                                <p>Don't have an account? <a href="#">Register</a></p>
+                            </div>
+                            <div class="text-center">
+                                <input class="btn btn-primary btn-lg" type="submit"
+                                       value="Login" style="background-color: royalblue">
+                            </div>
+                        </form>
+                    </div>
+                </div>
 
-</form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

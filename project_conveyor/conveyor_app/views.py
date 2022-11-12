@@ -25,8 +25,8 @@ from project_conveyor.conveyor_app.models import AskModel, Product, Order, Shipp
 def create_home_view(request):
     cart_items = None
     if request.user.is_authenticated:
-        # create_customer = Customer.objects.get_or_create(user=request.user, name=request.user.username,
-        #                                           email=request.user.email)
+        create_customer = Customer.objects.get_or_create(user=request.user, name=request.user.username,
+                                                  email=request.user.email)
         # # customer = request.user.customer
         order, created = Order.objects.get_or_create(customer=request.user.customer, complete=False)
         items = order.orderitem_set.all()
@@ -322,6 +322,11 @@ def roller_chain(request):
     return render(request, 'conveyor_app/roller_chains.html', context)
 
 def register_page(request):
+    data = cartData(request)
+    cart_items = data['cart_items']
+    order = data['order']
+    items = data['items']
+
     form = CreateUserForm()
     if request.method == 'POST':
         form = CreateUserForm(request.POST)
@@ -333,10 +338,15 @@ def register_page(request):
 
             return redirect('login')
 
-    context = {'form': form}
+    context = {'form': form, 'items': items, 'order': order, 'cart_items': cart_items}
     return render(request, 'conveyor_app/register.html', context)
 
 def login_page(request):
+    data = cartData(request)
+    cart_items = data['cart_items']
+    order = data['order']
+    items = data['items']
+
     if request.method == 'POST':
         username = request.POST.get('username')
         password = request.POST.get('password')
@@ -349,11 +359,13 @@ def login_page(request):
         else:
             messages.info(request, 'Username or password is incorrect')
 
-    context = {}
-    return render(request, 'conveyor_app/login.html')
+    context = {'items': items, 'order': order, 'cart_items': cart_items}
+    return render(request, 'conveyor_app/login.html', context)
 
 def logout_user(request):
     logout(request)
     return redirect('home')
 
-
+def profile(request):
+    context = {}
+    return render(request, 'conveyor_app/profile.html', context)

@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load crispy_forms_filters %}
+{% load static %}
+{% block page_content %}
+
+    <div style="background-color: #480410;height: 50px">
+        <div class="container mb-5 py-3">
+            <div class="row mb-5">
+                <h5 class="font-weight-bold" style="color: #dce9ef;font-style: italic">
+                    <a href="{% url 'home' %}" style="color: white"> Начало &#10097 </a> Моят профил
+                </h5>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row align-items-start">
+            <div class="col d-flex justify-content-center py-3">
+                <div class="card mb-4">
+                    <div class="card-body p-2" style="background-color: #dce9ef">
+                        <div class="text-center">
+                            <h4 class="card-title" style="font-style: italic;color: #480410;">
+                                Редуктори</h4>
+                        </div>
+                        <img src="{% static 'reducer.jpg' %}" style="height: 20rem">
+                    </div>
+                </div>
+            </div>
+        </div>
+{% endblock %}

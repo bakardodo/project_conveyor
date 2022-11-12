@@ -4,7 +4,8 @@ from django.views.decorators.csrf import csrf_exempt
 from project_conveyor.conveyor_app.views import CreateConveyorBeltView, \
     cart, create_home_view, checkout, \
     updateItem, processOrder, bearing_bodies_view, ucf_bearing_view, ucfl_bearing_body, belt_washer, chain_wheel, \
-    cylindric_wheel, electric_motor, modul_rail, reducer, roller_chain, register_page, login_page, logout, logout_user
+    cylindric_wheel, electric_motor, modul_rail, reducer, roller_chain, register_page, login_page, logout, logout_user, \
+    profile
 
 urlpatterns = (
     # path('', create_conveyor_question, name='conveyor questions'),
@@ -27,5 +28,6 @@ urlpatterns = (
     path('register/', register_page, name='register'),
     path('login/', login_page, name='login'),
     path('logout/', logout_user, name='logout'),
+    path('profile/', profile, name='profile'),
 
 )
