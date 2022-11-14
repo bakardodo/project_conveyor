@@ -367,5 +367,9 @@ def logout_user(request):
     return redirect('home')
 
 def profile(request):
-    context = {}
+    data = cartData(request)
+    cart_items = data['cart_items']
+    order = data['order']
+    items = data['items']
+    context = {'items': items, 'order': order, 'cart_items': cart_items}
     return render(request, 'conveyor_app/profile.html', context)
