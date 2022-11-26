@@ -1,0 +1,22 @@
+version: "3.8"
+services:
+  db:
+    build: ./database/
+    ports:
+      - "5432:5432"
+  app :
+    build: ./
+    ports:
+      - "8883:8000"
+    depends_on:
+      - db
+
+  # migration:
+  #   image: app:latest
+  #   command: ["python3", "manage.py", "migrate"]
+  #   links:
+  #     - app
+  #   depends_on:
+  #     - db
+  #     - app
+  

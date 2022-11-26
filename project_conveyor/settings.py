@@ -84,10 +84,10 @@ WSGI_APPLICATION = 'project_conveyor.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'my_conveyor_project',
-        'USER': 'newuser',
-        'PASSWORD': 'password',
-        'HOST': '127.0.0.1',
+        'NAME': 'database',
+        'USER': 'username',
+        'PASSWORD': 'secret',
+        'HOST': 'host.docker.internal', #'127.0.0.1',
         'PORT': '5432',
     }
 }
