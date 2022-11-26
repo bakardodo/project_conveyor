@@ -85,8 +85,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'my_conveyor_project',
-        'USER': 'postgres',
-        'PASSWORD': '12344321',
+        'USER': 'newuser',
+        'PASSWORD': 'password',
         'HOST': '127.0.0.1',
         'PORT': '5432',
     }
