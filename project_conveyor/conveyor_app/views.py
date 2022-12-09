@@ -64,6 +64,7 @@ class CreateConveyorBeltView(CreateView):
         order, created = Order.objects.get_or_create(customer=customer, complete=False)
         items = order.orderitem_set.all()
         cart_items = order.get_cart_items
+        current_conveyor = AskModel.objects.filter()
         context['cart_items'] = cart_items
         context['shipping'] = False
         return get_products(context)
@@ -186,9 +187,14 @@ def processOrder(request):
     all_products = []
     address = data['shipping']['address']
     city = data['shipping']['city']
+    # email = data['form']['email']
     if request.user.is_authenticated:
         customer = request.user.customer
         order, created = Order.objects.get_or_create(customer=customer, complete=False)
+
+        customer_products = OrderItem.objects.filter(order=order)
+        for i in customer_products:
+            all_products.append(i.product.name)
 
     else:
         print('User is not logged in..')
@@ -244,6 +250,11 @@ def processOrder(request):
     result = 'Име на потребителя:'
     result += '\n'
     result += f'-- {customer.name}'
+    result += '\n'
+    result += '\n'
+    result += 'Имейл:'
+    result += '\n'
+    result += f'-- {customer.email}'
     result += '\n'
     result += '\n'
     result += 'Пожелани продукти от потребителя:'
@@ -367,9 +378,17 @@ def logout_user(request):
     return redirect('home')
 
 def profile(request):
+    all_products = []
+    products = Product.objects.all()
     data = cartData(request)
     cart_items = data['cart_items']
     order = data['order']
     items = data['items']
-    context = {'items': items, 'order': order, 'cart_items': cart_items}
+    customer = request.user.customer
+    customer_orders = Order.objects.filter(customer=customer)
+    for my_order in customer_orders:
+        customer_products = OrderItem.objects.filter(order=my_order)
+        for x in customer_products:
+            all_products.append(x.product)
+    context = {'items': items, 'order': order, 'cart_items': cart_items, 'all_products': all_products, 'customer': customer, 'products': products}
     return render(request, 'conveyor_app/profile.html', context)

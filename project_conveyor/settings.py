@@ -29,7 +29,7 @@ SECRET_KEY = 'django-insecure-umh#na7s%(26is78pqd@f9%8b5k66ty*&^-u&-@(76-o=it2zm
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -127,7 +127,10 @@ CSRF_COOKIE_SECURE = False
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
-
+# STATIC_ROOT = '/home/username/projects/site/assets/'
+STATIC_URL = '/static/'
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'staticfiles'),)
 
 
 MEDIA_URL = '/images/'
@@ -139,7 +142,7 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'bakardjievstoqn@gmail.com'
-EMAIL_HOST_PASSWORD = 'qjsuoftfssbwungz'
+EMAIL_HOST_PASSWORD = 'sciiucvgpozjulok'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
@@ -149,8 +152,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATIC_URL = '/static/'
-STATICFILES_DIRS = (os.path.join(BASE_DIR, 'staticfiles'), )
 
-django_heroku.settings(locals())

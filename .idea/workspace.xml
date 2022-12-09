@@ -5,8 +5,17 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/project_conveyor/conveyor_app/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/project_conveyor/conveyor_app/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/project_conveyor/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/project_conveyor/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime.txt.txt" beforeDir="false" afterPath="$PROJECT_DIR$/runtime.txt.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/conveyor_app/UCFL.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/conveyor_app/UCFL.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/conveyor_app/bearing_bodies.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/conveyor_app/bearing_bodies.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/conveyor_app/belt_washers.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/conveyor_app/belt_washers.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/conveyor_app/checkout.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/conveyor_app/checkout.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/conveyor_app/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/conveyor_app/dashboard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/conveyor_app/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/conveyor_app/login.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/conveyor_app/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/conveyor_app/profile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/conveyor_app/reducers.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/conveyor_app/reducers.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/conveyor_app/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/conveyor_app/register.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/conveyor_app/shopping_cart.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/conveyor_app/shopping_cart.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,7 +65,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../car_cost_tracker" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
@@ -145,7 +154,11 @@
       <workItem from="1667929144944" duration="10699000" />
       <workItem from="1668017661649" duration="2543000" />
       <workItem from="1668022130547" duration="645000" />
-      <workItem from="1668022825990" duration="21473000" />
+      <workItem from="1668022825990" duration="22644000" />
+      <workItem from="1668452755429" duration="2761000" />
+      <workItem from="1668978184690" duration="1375000" />
+      <workItem from="1669055883489" duration="3541000" />
+      <workItem from="1669059663559" duration="51294000" />
     </task>
     <servers />
   </component>

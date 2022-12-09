@@ -46,18 +46,18 @@
 
     <div class="col d-flex justify-content-center">
         <h2 style="color: #480410">
-            {{ request.user }}
+{#            {{ request.user }}#}
             ТОП КАТЕГОРИИ
         </h2>
 
     </div>
     <div class="container mb-5">
-        <div class="row mb-5 py-3" style="border-top: 2px solid darkgray">
+        <div class="shadow row mb-5 py-3" style="border-top: 2px solid darkgray">
             <div class="col d-flex justify-content-center">
                 <a href="{% url 'conveyor belt' %}">
-                    <div class="card" style="width: 20rem; margin: 10px">
+                    <div class="card shadow" style="width: 20rem; margin: 10px">
                         <img src="{% static 'conveyor2.jpg' %}" class="card-img-top" style="height: 15rem">
-                        <div class="card-body" style="background-color: #205691;height: 80px">
+                        <div class="card-body shadow" style="background-color: #205691;height: 80px">
                             <div class="text-center">
                                 <h4 class="card-title" style="font-style: italic;color: white;">
                                     Конвейерни ленти</h4>
@@ -68,9 +68,9 @@
             </div>
             <div class="col d-flex justify-content-center">
                 <a href="{% url 'bearing body' %}">
-                    <div class="card" style="width: 20rem; margin: 10px">
+                    <div class="card shadow" style="width: 20rem; margin: 10px">
                         <img src="{% static 'bearing_body.jpg' %}" class="card-img-top" style="height: 15rem">
-                        <div class="card-body" style="background-color: #205691;height: 80px">
+                        <div class="card-body shadow" style="background-color: #205691;height: 80px">
                             <div class="text-center">
                                 <h4 class="card-title" style="font-style: italic;color: white;">
                                     Лагерни тела</h4>
@@ -80,10 +80,10 @@
                 </a>
             </div>
             <div class="col d-flex justify-content-center">
-                <a href="">
-                    <div class="card" style="width: 20rem; margin: 10px">
+                <a href="{% url 'belt washer' %}">
+                    <div class="card shadow" style="width: 20rem; margin: 10px">
                         <img src="{% static 'belts_2.jpg' %}" class="card-img-top" style="height: 15rem">
-                        <div class="card-body" style="background-color: #205691;height: 80px">
+                        <div class="card-body shadow" style="background-color: #205691;height: 80px">
                             <div class="text-center">
                                 <h4 class="card-title" style="font-style: italic;color: white;">
                                     Ремъчни шайби</h4>
@@ -93,10 +93,10 @@
                 </a>
             </div>
             <div class="col d-flex justify-content-center">
-                <a href="">
-                    <div class="card" style="width: 20rem; margin: 10px">
+                <a href="{% url 'chain wheel' %}">
+                    <div class="card shadow" style="width: 20rem; margin: 10px">
                         <img src="{% static 'best_chain.jpg' %}" class="card-img-top" style="height: 15rem">
-                        <div class="card-body" style="background-color: #205691;height: 80px">
+                        <div class="card-body shadow" style="background-color: #205691;height: 80px">
                             <div class="text-center">
                                 <h4 class="card-title" style="font-style: italic;color: white;">
                                     Верижни колела с главина</h4>
@@ -106,10 +106,10 @@
                 </a>
             </div>
             <div class="col d-flex justify-content-center">
-                <a href="">
-                    <div class="card" style="width: 20rem; margin: 10px">
+                <a href="{% url 'cylindric wheel' %}">
+                    <div class="card shadow" style="width: 20rem; margin: 10px">
                         <img src="{% static 'modul_wheels.jpg' %}" class="card-img-top" style="height: 15rem">
-                        <div class="card-body" style="background-color: #205691;height: 80px">
+                        <div class="card-body shadow" style="background-color: #205691;height: 80px">
                             <div class="text-center">
                                 <h4 class="card-title" style="font-style: italic;color: white;">
                                     Цилиндрични модулни колела</h4>
@@ -119,10 +119,10 @@
                 </a>
             </div>
             <div class="col d-flex justify-content-center">
-                <a href="">
-                    <div class="card" style="width: 20rem; margin: 10px">
+                <a href="{% url 'electric motor' %}">
+                    <div class="card shadow" style="width: 20rem; margin: 10px">
                         <img src="{% static 'engine_3.jpg' %}" class="card-img-top" style="height: 15rem">
-                        <div class="card-body" style="background-color: #205691;height: 80px">
+                        <div class="card-body shadow" style="background-color: #205691;height: 80px">
                             <div class="text-center">
                                 <h4 class="card-title" style="font-style: italic;color: white;">
                                     Електродвигатели</h4>
@@ -132,10 +132,10 @@
                 </a>
             </div>
             <div class="col d-flex justify-content-center">
-                <a href="">
-                    <div class="card" style="width: 20rem; margin: 10px">
+                <a href="{% url 'modul rail' %}">
+                    <div class="card shadow" style="width: 20rem; margin: 10px">
                         <img src="{% static 'modul_rail.jpg' %}" class="card-img-top" style="height: 15rem">
-                        <div class="card-body" style="background-color: #205691;height: 80px">
+                        <div class="card-body shadow" style="background-color: #205691;height: 80px">
                             <div class="text-center">
                                 <h4 class="card-title" style="font-style: italic;color: white;">
                                     Модулни рейки</h4>
@@ -145,10 +145,10 @@
                 </a>
             </div>
             <div class="col d-flex justify-content-center">
-                <a href="">
-                    <div class="card" style="width: 20rem; margin: 10px">
+                <a href="{% url 'reducer' %}">
+                    <div class="card shadow" style="width: 20rem; margin: 10px">
                         <img src="{% static 'reducer.jpg' %}" class="card-img-top" style="height: 15rem">
-                        <div class="card-body" style="background-color: #205691;height: 80px">
+                        <div class="card-body shadow" style="background-color: #205691;height: 80px">
                             <div class="text-center">
                                 <h4 class="card-title" style="font-style: italic;color: white;">
                                     Редуктори</h4>
@@ -158,10 +158,10 @@
                 </a>
             </div>
             <div class="col d-flex justify-content-center">
-                <a href="">
-                    <div class="card" style="width: 20rem; margin: 10px">
+                <a href="{% url 'roller chain' %}">
+                    <div class="card shadow" style="width: 20rem; margin: 10px">
                         <img src="{% static 'ch.jpg' %}" class="card-img-top" style="height: 15rem">
-                        <div class="card-body" style="background-color: #205691;height: 80px">
+                        <div class="card-body shadow" style="background-color: #205691;height: 80px">
                             <div class="text-center">
                                 <h4 class="card-title" style="font-style: italic;color: white;">
                                     Ролкови вериги</h4>
@@ -175,7 +175,7 @@
             YANEV ЕООД
         </h2>
         <div class="row mb-5 py-3" style="border-bottom: 2px solid darkgray"></div>
-        <h5>Фирма YANEV Corp. е създадена през 2016г. в град Пловдив. До ден днешен компанията продължава да се развива
+        <h5 >Фирма YANEV Corp. е създадена през 2016г. в град Пловдив. До ден днешен компанията продължава да се развива
             като вече разполага със складови бази в София и Пловдив с площ над 5000 кв.м. За 5 години компания
             успя да заеме лидерски позиции в сектора на машиностроенето и автоматизираното производство. За това
             допринася:
