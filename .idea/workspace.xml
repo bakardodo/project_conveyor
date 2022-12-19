@@ -2,20 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7803d486-fada-4237-9654-9f0ef9969215" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project_conveyor/conveyor_app/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/project_conveyor/conveyor_app/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/project_conveyor/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/project_conveyor/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/conveyor_app/UCFL.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/conveyor_app/UCFL.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/conveyor_app/bearing_bodies.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/conveyor_app/bearing_bodies.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/conveyor_app/belt_washers.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/conveyor_app/belt_washers.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/conveyor_app/checkout.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/conveyor_app/checkout.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/conveyor_app/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/conveyor_app/dashboard.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/conveyor_app/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/conveyor_app/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/conveyor_app/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/conveyor_app/profile.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/conveyor_app/reducers.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/conveyor_app/reducers.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/conveyor_app/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/conveyor_app/register.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/conveyor_app/shopping_cart.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/conveyor_app/shopping_cart.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -158,7 +147,8 @@
       <workItem from="1668452755429" duration="2761000" />
       <workItem from="1668978184690" duration="1375000" />
       <workItem from="1669055883489" duration="3541000" />
-      <workItem from="1669059663559" duration="51294000" />
+      <workItem from="1669059663559" duration="53168000" />
+      <workItem from="1671462059509" duration="2083000" />
     </task>
     <servers />
   </component>

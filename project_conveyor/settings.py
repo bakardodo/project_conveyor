@@ -14,7 +14,7 @@ import os
 import django_heroku
 import dj_database_url
 from pathlib import Path
-
+from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-umh#na7s%(26is78pqd@f9%8b5k66ty*&^-u&-@(76-o=it2zm'
+SECRET_KEY = config('DJ_SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -84,10 +84,10 @@ WSGI_APPLICATION = 'project_conveyor.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'my_conveyor_project',
-        'USER': 'postgres',
-        'PASSWORD': '12344321',
-        'HOST': '127.0.0.1',
+        'NAME': config('DB_NAME'),
+        'USER': config('DB_USER'),
+        'PASSWORD': config('DB_PASSWORD'),
+        'HOST': config('DB_HOST'),
         'PORT': '5432',
     }
 }
@@ -138,11 +138,11 @@ MEDIA_URL = '/images/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'staticfiles/images')
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST = config('DJ_EMAIL_HOST')
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'bakardjievstoqn@gmail.com'
-EMAIL_HOST_PASSWORD = 'sciiucvgpozjulok'
+EMAIL_HOST_USER = config('DJ_EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = config('DJ_EMAIL_HOST_PASSWORD')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
